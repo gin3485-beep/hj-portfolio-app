@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg:#f8f9fb; --bg2:#ffffff; --bg3:#f1f4f8;
+    --blue:#3b82f6; --blue2:#2563eb; --blue-light:#eff6ff;
+    --text:#1e293b; --muted:#64748b; --border:#e2e8f0;
+  }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',sans-serif; overflow-x:hidden; }
+
+  /* NAV */
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:1.1rem 4rem; background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
+  .logo { font-size:1.3rem; font-weight:800; color:var(--blue); letter-spacing:2px; }
+  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:.85rem; font-weight:600; letter-spacing:1px; transition:.3s; text-transform:uppercase; }
+  .nav-links a:hover { color:var(--blue); }
+
+  section { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:6rem 4rem 4rem; }
+
+  /* HERO */
+  #hero { position:relative; overflow:hidden; flex-direction:column; text-align:center; background:var(--bg2); }
+  .hero-bg { position:absolute; inset:0; z-index:0; background:radial-gradient(ellipse 70% 50% at 50% 40%, rgba(59,130,246,0.08) 0%, transparent 70%); }
+  .hero-grid { position:absolute; inset:0; z-index:0; opacity:.04; background-image:linear-gradient(var(--blue) 1px,transparent 1px),linear-gradient(90deg,var(--blue) 1px,transparent 1px); background-size:60px 60px; }
+  .hero-content { position:relative; z-index:1; }
+  .hero-badge { display:inline-block; padding:.4rem 1.2rem; border:1px solid var(--border); border-radius:999px; font-size:.78rem; color:var(--blue); letter-spacing:2px; margin-bottom:2rem; background:var(--blue-light); font-weight:600; }
+  h1 { font-size:clamp(3rem,8vw,6.5rem); font-weight:900; line-height:1; letter-spacing:-2px; color:var(--text); }
+  h1 span { color:var(--blue); }
+  .hero-sub { margin:1.5rem auto 2.5rem; font-size:1.1rem; color:var(--muted); max-width:500px; line-height:1.8; }
+  .btn { display:inline-block; padding:.85rem 2.2rem; background:var(--blue); color:#fff; text-decoration:none; font-weight:700; border-radius:8px; letter-spacing:1px; transition:.3s; border:2px solid var(--blue); font-size:.9rem; }
+  .btn:hover { background:var(--blue2); border-color:var(--blue2); }
+  .btn-outline { background:transparent; color:var(--blue); margin-left:1rem; }
+  .btn-outline:hover { background:var(--blue); color:#fff; }
+  .scroll-line { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:.5rem; color:var(--muted); font-size:.72rem; letter-spacing:2px; }
+  .scroll-line::after { content:''; width:1px; height:50px; background:linear-gradient(var(--blue),transparent); animation:scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+
+  /* ABOUT */
+  #about { background:var(--bg); padding-top:7rem; padding-bottom:2rem; display:flex; justify-content:center; align-items:flex-start; }
+  .about-wrap { display:flex; flex-direction:column; gap:2rem; max-width:1100px; width:100%; }
+  .about-intro { padding:.2rem 0 .5rem; }
+  .about-main { display:grid; grid-template-columns:200px 1fr 1fr; gap:1.5rem; align-items:stretch; }
+  .about-col-img { display:flex; flex-direction:column; gap:1rem; }
+  .about-img { width:100%; aspect-ratio:3/4; background:var(--blue-light); border:1px solid var(--border); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:var(--blue); overflow:hidden; }
+  .personal-card { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1rem 1.2rem; box-shadow:0 1px 4px rgba(0,0,0,.05); }
+  .personal-card .p-name { font-size:1rem; font-weight:800; margin-bottom:.5rem; color:var(--text); }
+  .personal-card .p-row { display:flex; align-items:center; gap:.5rem; font-size:.79rem; color:var(--muted); margin-bottom:.28rem; }
+  .personal-card .p-row:last-child { margin-bottom:0; }
+  .personal-card .p-icon { font-size:.82rem; width:16px; text-align:center; }
+  .edu-cert-col { display:flex; flex-direction:column; gap:1.2rem; align-self:stretch; }
+  .edu-cert-col .info-block:last-child { flex:1; min-height:0; }
+  .info-block { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.2rem 1.4rem; box-shadow:0 1px 4px rgba(0,0,0,.04); }
+  .info-block-title { font-size:.7rem; color:var(--blue); letter-spacing:2px; text-transform:uppercase; margin-bottom:1rem; font-weight:700; }
+  .edu-item, .cert-item { padding:.65rem 0; border-bottom:1px solid var(--border); }
+  .edu-item:last-child, .cert-item:last-child { border-bottom:none; padding-bottom:0; }
+  .edu-item:first-child, .cert-item:first-child { padding-top:0; }
+  .edu-name { font-weight:700; font-size:.9rem; color:var(--text); margin-bottom:.2rem; }
+  .edu-year { font-size:.77rem; color:var(--blue); letter-spacing:1px; font-weight:600; }
+  .career-block { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.8rem; box-shadow:0 1px 4px rgba(0,0,0,.04); }
+  .career-block-title { font-size:.7rem; color:var(--blue); letter-spacing:2px; text-transform:uppercase; margin-bottom:1.4rem; font-weight:700; }
+  .career-timeline { position:relative; padding-left:1.8rem; }
+  .career-timeline::before { content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--blue),rgba(59,130,246,0.15)); border-radius:2px; }
+  .career-item { position:relative; margin-bottom:2rem; }
+  .career-item:last-child { margin-bottom:0; }
+  .career-item::before { content:''; position:absolute; left:-1.55rem; top:6px; width:10px; height:10px; border-radius:50%; background:var(--blue); border:2px solid #fff; box-shadow:0 0 0 2px var(--blue); }
+  .career-company { font-size:1.05rem; font-weight:800; margin-bottom:.3rem; color:var(--text); }
+  .career-period { font-size:.8rem; color:var(--muted); letter-spacing:1px; margin-bottom:.45rem; }
+  .career-badge { display:inline-block; padding:.22rem .65rem; background:var(--blue-light); border:1px solid #bfdbfe; border-radius:4px; font-size:.74rem; color:var(--blue2); font-weight:600; }
+  .skills-block { background:transparent; border:none; padding:.2rem 0; }
+  .skills-block-title { font-size:.7rem; color:var(--blue); letter-spacing:2px; text-transform:uppercase; margin-bottom:1rem; font-weight:700; }
+  .skills { display:flex; flex-wrap:wrap; gap:.6rem; }
+  .skill-tag { padding:.5rem 1.2rem; background:var(--bg2); border:1px solid var(--border); border-radius:6px; font-size:.85rem; color:var(--text); font-weight:600; letter-spacing:1px; cursor:default; transition:background .25s,color .25s,border-color .25s,transform .25s,box-shadow .25s; }
+  .skill-tag:hover { background:var(--blue); color:#fff; border-color:var(--blue); transform:translateY(-3px); box-shadow:0 6px 20px rgba(59,130,246,0.25); }
+
+  /* SECTION HEADER */
+  .work-section { flex-direction:column; }
+  .section-header { text-align:center; margin-bottom:3.5rem; }
+  .section-header p { color:var(--muted); max-width:500px; margin:1rem auto 0; line-height:1.7; }
+  .section-label { font-size:.72rem; color:var(--blue); letter-spacing:3px; text-transform:uppercase; margin-bottom:.8rem; font-weight:700; display:block; }
+  h2 { font-size:clamp(1.8rem,4vw,3rem); font-weight:900; line-height:1.1; letter-spacing:-1px; margin-bottom:1rem; color:var(--text); }
+  .divider { width:50px; height:3px; background:var(--blue); margin:.8rem auto 0; border-radius:2px; }
+
+  /* UI/UX SLIDER */
+  .slider-wrap { width:100%; max-width:1100px; position:relative; overflow:hidden; }
+  .slider-track { display:flex; transition:transform .7s cubic-bezier(.4,0,.2,1); will-change:transform; }
+  .uiux-card { min-width:100%; display:grid; grid-template-columns:1fr 1fr; background:var(--bg2); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,.06); }
+  .uiux-thumb { min-height:320px; display:flex; align-items:center; justify-content:center; font-size:5rem; background:var(--blue-light); }
+  .uiux-body { padding:3rem 2.5rem; display:flex; flex-direction:column; justify-content:center; }
+  .uiux-body .card-label { font-size:.72rem; color:var(--blue); letter-spacing:2px; margin-bottom:.4rem; text-transform:uppercase; font-weight:700; }
+  .uiux-body .card-title { font-weight:900; font-size:1.8rem; margin: 15px 0 5px 0; line-height:1.2; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .uiux-body .card-desc { color:var(--muted); font-size:.95rem; line-height:1.3; }
+  .slider-nav { display:flex; align-items:center; gap:1rem; margin-top:1.8rem; justify-content:center; }
+  .s-btn { width:38px; height:38px; border-radius:50%; background:transparent; border:none; color:var(--muted); cursor:pointer; transition:.3s; display:flex; align-items:center; justify-content:center; padding:0; }
+  .s-btn:hover { background:transparent; border-color:transparent; color:var(--blue); }
+  .s-btn svg { display:block; }
+  .s-btn:hover { background:var(--blue); border-color:var(--blue); color:#fff; }
+  .slider-dots { display:flex; gap:.6rem; align-items:center; }
+  .dot { width:9px; height:9px; border-radius:50%; background:#cbd5e1; border:1.5px solid #cbd5e1; cursor:pointer; transition:.3s; }
+  .dot.active { background:var(--blue); border-color:var(--blue); width:26px; border-radius:5px; }
+
+  /* WEB GRID */
+  .grid-wrap { width:100%; max-width:1100px; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .grid-item { background:var(--bg2); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:.3s; cursor:pointer; box-shadow:0 1px 6px rgba(0,0,0,.05); }
+  .grid-item.hidden { display:none; }
+  .grid-item:hover { border-color:var(--blue); transform:translateY(-4px); box-shadow:0 8px 24px rgba(59,130,246,0.12); }
+  .grid-thumb { height:180px; display:flex; align-items:center; justify-content:center; font-size:2.6rem; background:var(--blue-light); position:relative; overflow:hidden; }
+  .grid-body { padding:1rem 1.1rem 1.2rem; }
+  .grid-label { font-size:.68rem; color:var(--blue); letter-spacing:2px; margin-bottom:.3rem; text-transform:uppercase; font-weight:700; }
+  .grid-title { font-weight:800; font-size:.97rem; margin-bottom:.3rem; color:var(--text); }
+  .grid-desc { color:var(--muted); font-size:.82rem; line-height:1.6; }
+  .more-btn-wrap { margin-top:2.5rem; text-align:center; }
+  .more-btn { padding:.8rem 2.4rem; background:transparent; border:2px solid var(--blue); color:var(--blue); border-radius:8px; font-size:.9rem; font-weight:700; letter-spacing:1px; cursor:pointer; transition:.3s; }
+  .more-btn:hover { background:var(--blue); color:#fff; }
+
+  /* PRINT GRID */
+  .print-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:1100px; width:100%; }
+  .print-item { background:var(--bg2); border:1px solid var(--border); border-radius:14px; overflow:hidden; transition:.3s; cursor:pointer; box-shadow:0 1px 6px rgba(0,0,0,.05); }
+  .print-item:hover { border-color:var(--blue); transform:translateY(-4px); box-shadow:0 8px 24px rgba(59,130,246,0.12); }
+  .print-thumb { height:220px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; background:var(--blue-light); position:relative; overflow:hidden; }
+  .print-body { padding:1.4rem 1.6rem 1.8rem; }
+  .print-label { font-size:.68rem; color:var(--blue); letter-spacing:2px; margin-bottom:.4rem; text-transform:uppercase; font-weight:700; }
+  .print-title { font-weight:800; font-size:1.1rem; margin-bottom:.5rem; color:var(--text); }
+  .print-desc { color:var(--muted); font-size:.87rem; line-height:1.7; }
+
+  /* POPUP */
+  .popup-overlay { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:2rem; }
+  .popup-overlay.open { display:flex; animation:fadeIn .25s ease; }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  .popup-box { position:relative; max-width:600px; width:100%; animation:popUp .3s cubic-bezier(.4,0,.2,1); max-height:88vh; display:flex; flex-direction:column; }
+  @keyframes popUp { from{opacity:0;transform:scale(.94) translateY(16px)} to{opacity:1;transform:scale(1) translateY(0)} }
+  .popup-img { width:100%; flex:1; display:flex; align-items:center; justify-content:center; font-size:7rem; background:var(--blue-light); border-radius:14px; border:1px solid var(--border); overflow-y:auto; }
+  .popup-close { position:absolute; top:-14px; right:-14px; width:36px; height:36px; border-radius:50%; background:#fff; border:1px solid var(--border); color:var(--text); font-size:1rem; cursor:pointer; transition:.3s; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,.12); z-index:1; }
+  .popup-close:hover { background:var(--blue); border-color:var(--blue); color:#fff; }
+
+  /* CONTACT */
+  #contact { background:var(--bg); flex-direction:column; }
+  .contact-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; max-width:1100px; width:100%; }
+  .contact-info p { color:var(--muted); line-height:1.8; margin-bottom:2rem; }
+  .contact-links { display:flex; flex-direction:column; gap:1rem; }
+  .c-info-item { display:flex; align-items:center; gap:1rem; padding:.6rem 0; }
+  .c-info-item:last-child { border-bottom:none; }
+  .c-info-icon { font-size:1.3rem; width:36px; text-align:center; }
+  .c-info-label { font-size:.7rem; color:var(--blue); letter-spacing:2px; font-weight:700; margin-bottom:.2rem; }
+  .c-info-val { font-size:.95rem; font-weight:600; color:var(--text); }
+  .form-group { margin-bottom:1.1rem; }
+  .form-group label { display:block; font-size:.78rem; color:var(--blue); letter-spacing:1px; margin-bottom:.45rem; font-weight:700; }
+  .form-group input, .form-group textarea, .form-group select { width:100%; padding:.85rem 1rem; background:var(--bg2); border:1px solid var(--border); color:var(--text); border-radius:8px; font-size:.93rem; font-family:inherit; transition:.3s; outline:none; }
+  .form-group input:focus, .form-group textarea:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(59,130,246,0.1); }
+  .form-group textarea { height:130px; resize:vertical; }
+  .submit-btn { width:100%; padding:1rem; background:var(--blue); color:#fff; border:none; border-radius:8px; font-size:1rem; font-weight:700; cursor:pointer; letter-spacing:1px; transition:.3s; }
+  .submit-btn:hover { background:var(--blue2); }
+
+  footer { background:var(--bg2); border-top:1px solid var(--border); padding:3rem 4rem; text-align:center; }
+  .footer-logo { font-size:1.5rem; font-weight:900; color:var(--blue); letter-spacing:3px; margin-bottom:1rem; }
+  .footer-text { color:var(--muted); font-size:.85rem; }
+  .footer-line { width:50px; height:2px; background:var(--blue); margin:1.2rem auto; border-radius:2px; }
+
+  @media(max-width:768px) {
+    nav { padding:1rem 1.5rem; } .nav-links { display:none; }
+    section { padding:5rem 1.5rem 3rem; }
+    .about-main { grid-template-columns:1fr; }
+    .uiux-card { grid-template-columns:1fr; }
+    .uiux-thumb { min-height:200px; }
+    .uiux-body { padding:1.5rem; } .uiux-body .card-title { font-size:1.3rem; }
+    .grid { grid-template-columns:1fr 1fr; }
+    .print-grid { grid-template-columns:1fr; }
+    .contact-inner { grid-template-columns:1fr; gap:2.5rem; }
+  }
+  @media(max-width:480px) { .grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">PORT.</div>
+  <ul class="nav-links">
+    <li><a onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">Home</a></li>
+    <li><a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">About</a></li>
+    <li><a onclick="document.getElementById('uiux').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">UI/UX</a></li>
+    <li><a onclick="document.getElementById('web').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">Web</a></li>
+    <li><a onclick="document.getElementById('print').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">Print</a></li>
+    <li><a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ DESIGNER & PUBLISHER</div>
+    <h1>CREATIVE<br><span>DESIGN</span><br>PORTFOLIO</h1>
+    <p class="hero-sub">아이디어를 시각으로, 경험을 디자인으로.<br>UI/UX · Web · Print 전문 디자이너입니다.</p>
+    <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn" style="cursor:pointer;">CONTACT ME</a>
+  </div>
+  <div class="scroll-line">SCROLL</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-intro">
+      <span class="section-label">// About Me</span>
+      <h2>사용자 경험을 디자인하는 <span style="color:var(--blue)">장희진</span>입니다.</h2>
+      <p style="color:var(--muted);line-height:1.8;font-size:.97rem;margin-top:.8rem;">UI/UX 설계부터 웹 디자인, 인쇄물 디자인까지 — 디지털과 오프라인을 아우르는 폭넓은 시각 언어로 브랜드의 가치를 완성합니다.</p>
+    </div>
+    <div class="about-main">
+      <div class="about-col-img">
+        <div class="about-img">🎨</div>
+        <div class="personal-card">
+          <div class="p-name">장희진</div>
+          <div class="p-row"><span class="p-icon">🎂</span>1994.06.10</div>
+          <div class="p-row"><span class="p-icon">✉️</span>hh3430@naver.com</div>
+          <div class="p-row"><span class="p-icon">📞</span>010-7677-1866</div>
+        </div>
+      </div>
+      <div class="edu-cert-col">
+        <div class="info-block">
+          <div class="info-block-title">🎓 학력</div>
+          <div class="edu-item">
+            <div class="edu-name">OO고등학교 졸업</div>
+            <div class="edu-year">2013</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-name">OO대학교 졸업</div>
+            <div class="edu-year">2016</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-title">📜 자격증</div>
+          <div class="cert-item">
+            <div class="edu-name">컴퓨터그래픽스 운용기능사</div>
+            <div class="edu-year">2020.09</div>
+          </div>
+          <div class="cert-item">
+            <div class="edu-name">웹디자인 기능사</div>
+            <div class="edu-year">2020.12</div>
+          </div>
+        </div>
+      </div>
+      <div class="career-block">
+        <div class="career-block-title">💼 경력</div>
+        <div class="career-timeline">
+          <div class="career-item">
+            <div class="career-company">엔프라미스</div>
+            <div class="career-period">2022.02 – 2022.12 <span style="color:var(--muted);font-size:.75rem;font-weight:400;">(퇴사사유: 인수합병)</span></div>
+            <span class="career-badge">약 11개월</span>
+          </div>
+          <div class="career-item">
+            <div class="career-company">오더퀸</div>
+            <div class="career-period">2022.12 – 2023.10 <span style="color:var(--muted);font-size:.75rem;font-weight:400;">(퇴사사유: 인수합병)</span></div>
+            <span class="career-badge">약 10개월</span>
+          </div>
+          <div class="career-item">
+            <div class="career-company">비버웍스</div>
+            <div class="career-period">2023.10 – 현재</div>
+            <span class="career-badge">재직중</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="skills-block">
+      <div class="skills-block-title">🛠 스킬</div>
+      <div class="skills">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Illustrator</span>
+        <span class="skill-tag">Photoshop</span>
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">jQuery</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UI/UX -->
+<section id="uiux" class="work-section" style="background:var(--bg2);">
+  <div class="section-header">
+    <span class="section-label">// 01</span>
+    <h2>UI / UX Design</h2>
+    <div class="divider"></div>
+    <p>브랜드 아이덴티티를 담은 웹사이트 디자인 및 구현 프로젝트입니다.</p>
+  </div>
+  <div class="slider-wrap">
+    <div class="slider-track" id="uiuxTrack">
+      <div class="uiux-card"><div class="uiux-thumb">📱</div><div class="uiux-body"><div class="card-label">Mobile App</div><div class="card-period">2025.01.01 ~ 2025.03.31</div><div class="card-title">헬스케어 앱 리디자인</div><div class="card-desc">사용자 리서치 기반의 헬스케어 앱 전체 UX 개선 프로젝트. 직관적인 네비게이션과 접근성을 중심으로 설계하였습니다.</div></div></div>
+      <div class="uiux-card"><div class="uiux-thumb">💻</div><div class="uiux-body"><div class="card-label">Homepage</div><div class="card-period">2026.01.01 ~ 2026.03.31</div><div class="card-title">오더퀸 홈페이지 리뉴얼</div><div class="card-desc">복잡한 데이터를 직관적으로 표현하는 어드민 대시보드 디자인. 실시간 데이터 시각화와 필터링 UX를 설계하였습니다.</div></div></div>
+      <div class="uiux-card"><div class="uiux-thumb">🛒</div><div class="uiux-body"><div class="card-label">E-commerce</div><div class="card-period">2025.04.01 ~ 2025.06.30</div><div class="card-title">쇼핑몰 UX 최적화</div><div class="card-desc">전환율 향상을 위한 구매 플로우 UX 최적화 프로젝트. A/B 테스트를 통해 전환율을 32% 향상시킨 사례입니다.</div></div></div>
+      <div class="uiux-card"><div class="uiux-thumb">🎯</div><div class="uiux-body"><div class="card-label">Prototype</div><div class="card-period">2025.07.01 ~ 2025.09.30</div><div class="card-title">핀테크 앱 프로토타입</div><div class="card-desc">금융 서비스의 접근성을 높이는 UX 프로토타입 설계. 복잡한 금융 기능을 누구나 쉽게 쓸 수 있도록 단순화하였습니다.</div></div></div>
+    </div>
+    <div class="slider-nav">
+      <button class="s-btn" onclick="uiuxMove(-1)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="slider-dots" id="uiuxDots"></div>
+      <button class="s-btn" onclick="uiuxMove(1)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- WEB -->
+<section id="web" class="work-section" style="background:var(--bg);">
+  <div class="section-header">
+    <span class="section-label">// 02</span>
+    <h2>Web Design</h2>
+    <div class="divider"></div>
+    <p>사용자 중심의 인터페이스 설계와 경험 디자인 프로젝트입니다.</p>
+  </div>
+  <div class="grid-wrap">
+    <div class="grid" id="webGrid">
+      <div class="grid-item" onclick="openPopupImg('https://i.postimg.cc/Y25Ss4wq/pepelonipija.png')"><div class="grid-thumb" style="padding:0;overflow:hidden;"><img src="https://i.imgur.com/AsipFTn.png" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" alt="비버 배리어프리 키오스크"/></div><div class="grid-body"><div class="grid-label">Web Design</div><div class="grid-title">비버 배리어프리 키오스크</div><div class="grid-desc">NIA 공식 인증 배리어프리 키오스크 웹 디자인</div></div></div>
+      <div class="grid-item" onclick="openPopup('🎨')"><div class="grid-thumb">🎨</div><div class="grid-body"><div class="grid-label">Portfolio</div><div class="grid-title">작가 포트폴리오 사이트</div><div class="grid-desc">갤러리 중심의 인터랙티브 포트폴리오 웹사이트</div></div></div>
+      <div class="grid-item" onclick="openPopup('🍽️')"><div class="grid-thumb">🍽️</div><div class="grid-body"><div class="grid-label">Restaurant</div><div class="grid-title">레스토랑 브랜딩 웹</div><div class="grid-desc">감성적인 식음료 브랜드를 위한 웹사이트 디자인</div></div></div>
+      <div class="grid-item" onclick="openPopup('🚀')"><div class="grid-thumb">🚀</div><div class="grid-body"><div class="grid-label">Startup</div><div class="grid-title">스타트업 랜딩페이지</div><div class="grid-desc">전환율에 최적화된 SaaS 스타트업 랜딩 페이지</div></div></div>
+      <div class="grid-item" onclick="openPopup('📸')"><div class="grid-thumb">📸</div><div class="grid-body"><div class="grid-label">Photography</div><div class="grid-title">사진작가 웹사이트</div><div class="grid-desc">비주얼 중심의 사진작가 개인 브랜딩 사이트</div></div></div>
+      <div class="grid-item" onclick="openPopup('🏥')"><div class="grid-thumb">🏥</div><div class="grid-body"><div class="grid-label">Medical</div><div class="grid-title">병원 홈페이지 리뉴얼</div><div class="grid-desc">신뢰감과 접근성을 높인 의료기관 웹 리뉴얼</div></div></div>
+      <div class="grid-item" onclick="openPopup('🎓')"><div class="grid-thumb">🎓</div><div class="grid-body"><div class="grid-label">Education</div><div class="grid-title">온라인 강의 플랫폼</div><div class="grid-desc">학습 경험 최적화를 위한 교육 플랫폼 UI 설계</div></div></div>
+      <div class="grid-item" onclick="openPopup('🏨')"><div class="grid-thumb">🏨</div><div class="grid-body"><div class="grid-label">Hospitality</div><div class="grid-title">호텔 예약 웹사이트</div><div class="grid-desc">고급 호텔 브랜드를 위한 예약 중심 웹 디자인</div></div></div>
+      <div class="grid-item" onclick="openPopup('🎵')"><div class="grid-thumb">🎵</div><div class="grid-body"><div class="grid-label">Music</div><div class="grid-title">뮤지션 공식 사이트</div><div class="grid-desc">아티스트 정체성을 담은 인터랙티브 뮤직 웹사이트</div></div></div>
+      <div class="grid-item hidden" onclick="openPopup('🛍️')"><div class="grid-thumb">🛍️</div><div class="grid-body"><div class="grid-label">Fashion</div><div class="grid-title">패션 브랜드 쇼핑몰</div><div class="grid-desc">트렌디한 패션 브랜드의 온라인 스토어 디자인</div></div></div>
+      <div class="grid-item hidden" onclick="openPopup('🌿')"><div class="grid-thumb">🌿</div><div class="grid-body"><div class="grid-label">Eco</div><div class="grid-title">친환경 브랜드 웹</div><div class="grid-desc">지속가능성 메시지를 담은 친환경 기업 웹사이트</div></div></div>
+      <div class="grid-item hidden" onclick="openPopup('🏗️')"><div class="grid-thumb">🏗️</div><div class="grid-body"><div class="grid-label">Architecture</div><div class="grid-title">건축사무소 포트폴리오</div><div class="grid-desc">공간과 구조를 시각화한 건축사 웹 포트폴리오</div></div></div>
+      <div class="grid-item hidden" onclick="openPopup('💄')"><div class="grid-thumb">💄</div><div class="grid-body"><div class="grid-label">Beauty</div><div class="grid-title">뷰티 브랜드 론칭 페이지</div><div class="grid-desc">신규 뷰티 브랜드의 감각적인 론칭 웹페이지</div></div></div>
+      <div class="grid-item hidden" onclick="openPopup('⚽')"><div class="grid-thumb">⚽</div><div class="grid-body"><div class="grid-label">Sports</div><div class="grid-title">스포츠 클럽 공식 사이트</div><div class="grid-desc">역동적인 스포츠 팀 브랜딩 및 팬 커뮤니티 웹</div></div></div>
+      <div class="grid-item hidden" onclick="openPopup('🔬')"><div class="grid-thumb">🔬</div><div class="grid-body"><div class="grid-label">Tech</div><div class="grid-title">IT 기술 기업 웹사이트</div><div class="grid-desc">혁신적 기술력을 표현하는 테크 기업 웹 디자인</div></div></div>
+    </div>
+    <div class="more-btn-wrap">
+      <button class="more-btn" id="moreBtn" onclick="showMore()">더보기 ＋</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRINT -->
+<section id="print" class="work-section" style="background:var(--bg2);">
+  <div class="section-header">
+    <span class="section-label">// 03</span>
+    <h2>Print Design</h2>
+    <div class="divider"></div>
+    <p>오프라인 공간에서도 브랜드를 말하는 인쇄물 디자인 프로젝트입니다.</p>
+  </div>
+  <div class="print-grid">
+    <div class="print-item" onclick="openPopup('📄')"><div class="print-thumb">📄</div><div class="print-body"><div class="print-label">Branding</div><div class="print-title">브랜드 아이덴티티 패키지</div><div class="print-desc">명함·레터헤드·봉투를 포함한 전체 BI 패키지 디자인</div></div></div>
+    <div class="print-item" onclick="openPopup('📰')"><div class="print-thumb">📰</div><div class="print-body"><div class="print-label">Editorial</div><div class="print-title">사내 매거진 편집 디자인</div><div class="print-desc">격월 발행되는 기업 사내보 전체 레이아웃 및 편집 디자인</div></div></div>
+    <div class="print-item" onclick="openPopup('🖼️')"><div class="print-thumb">🖼️</div><div class="print-body"><div class="print-label">Poster</div><div class="print-title">문화 행사 포스터 시리즈</div><div class="print-desc">지역 문화 축제를 위한 포스터 및 배너 시리즈 디자인</div></div></div>
+    <div class="print-item" onclick="openPopup('📦')"><div class="print-thumb">📦</div><div class="print-body"><div class="print-label">Packaging</div><div class="print-title">식품 패키지 디자인</div><div class="print-desc">친환경 식품 브랜드의 패키지 아이덴티티 전체 제작</div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <span class="section-label">// Contact</span>
+      <h2>Contact</h2>
+      <p style="margin-top:1rem;">프로젝트 문의, 협업 제안, 채용 관련 연락 모두 환영합니다.<br>빠르게 답변 드리겠습니다.</p>
+      <div class="contact-links">
+        <div class="c-info-item">
+          <span class="c-info-icon">✉️</span>
+          <div>
+            <div class="c-info-label">Email</div>
+            <div class="c-info-val">hh3430@naver.com</div>
+          </div>
+        </div>
+        <div class="c-info-item">
+          <span class="c-info-icon">📞</span>
+          <div>
+            <div class="c-info-label">Phone</div>
+            <div class="c-info-val">010-7677-1866</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="form-group"><label>Name</label><input type="text" placeholder="이름을 입력하세요"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="핸드폰 번호를 입력하세요"></div>
+      <div class="form-group"><label>Project type</label>
+        <select><option>문의 유형을 선택하세요</option><option>UI/UX 디자인</option><option>퍼블리싱</option><option>웹 디자인</option><option>인쇄물 디자인</option><option>기타</option></select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="프로젝트 내용이나 문의사항을 적어주세요."></textarea></div>
+      <div class="form-group" style="display:flex;align-items:flex-start;gap:.6rem;margin-bottom:1.1rem;">
+        <input type="checkbox" id="privacyCheck" style="width:16px;height:16px;margin-top:2px;accent-color:var(--blue);cursor:pointer;flex-shrink:0;">
+        <label for="privacyCheck" style="font-size:.83rem;color:var(--muted);letter-spacing:0;font-weight:400;cursor:pointer;line-height:1.5;"><span style="color:var(--blue);font-weight:600;">개인정보 수집·이용 동의</span><br>수집된 개인정보(이름, 연락처)는 문의 답변 목적으로만 사용되며, 답변 완료 후 즉시 파기됩니다.</label>
+      </div>
+      <button class="submit-btn">문의하기</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Thank you</div>
+  <div class="footer-line"></div>
+  <p class="footer-text">© 2026 장희진. All rights reserved.</p>
+</footer>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopupOutside(event)">
+  <div class="popup-box" id="popupBox">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-img" id="popupImg"></div>
+  </div>
+</div>
+
+<script>
+  // UI/UX Slider
+  const track = document.getElementById('uiuxTrack');
+  const dotsWrap = document.getElementById('uiuxDots');
+  const total = track.children.length;
+  let cur = 0, timer;
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===0?' active':'');
+    d.onclick = () => uiuxGo(i);
+    dotsWrap.appendChild(d);
+  }
+  function uiuxGo(idx) {
+    cur = (idx + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    document.querySelectorAll('#uiuxDots .dot').forEach((d,i) => d.classList.toggle('active', i===cur));
+    clearInterval(timer);
+    timer = setInterval(() => uiuxGo(cur + 1), 5000);
+  }
+  function uiuxMove(dir) { uiuxGo(cur + dir); }
+  timer = setInterval(() => uiuxGo(cur + 1), 5000);
+
+  // More
+  function showMore() {
+    document.querySelectorAll('#webGrid .grid-item.hidden').forEach((el,i) => {
+      setTimeout(() => {
+        el.classList.remove('hidden');
+        el.style.opacity='0'; el.style.transform='translateY(20px)';
+        el.style.transition='opacity .5s ease,transform .5s ease';
+        requestAnimationFrame(() => requestAnimationFrame(() => { el.style.opacity='1'; el.style.transform='translateY(0)'; }));
+      }, i*80);
+    });
+    document.getElementById('moreBtn').style.display='none';
+  }
+
+  // Popup
+  function openPopup(emoji) {
+    const el = document.getElementById('popupImg');
+    el.innerHTML = emoji;
+    el.style.overflowY = 'auto';
+    document.getElementById('popupOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function openPopupImg(url) {
+    const el = document.getElementById('popupImg');
+    el.innerHTML = `<img src="${url}" style="width:100%;display:block;" alt="작업물 이미지"/>`;
+    el.style.overflowY = 'auto';
+    el.style.alignItems = 'flex-start';
+    document.getElementById('popupOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePopup() {
+    document.getElementById('popupOverlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  function closePopupOutside(e) { if(e.target===document.getElementById('popupOverlay')) closePopup(); }
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closePopup(); });
+
+  // Fade-in
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.grid-item:not(.hidden),.print-item,.info-block,.career-item,.personal-card,.skill-tag,.c-link').forEach(el => {
+    el.style.opacity='0'; el.style.transform='translateY(18px)';
+    el.style.transition='opacity .6s ease,transform .6s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
