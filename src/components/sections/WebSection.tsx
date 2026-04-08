@@ -1,7 +1,7 @@
 'use client';
 import SectionHeader from '../ui/SectionHeader';
 import { usePopup } from '../ui/PopupProvider';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const webProjects = [
   { id: 1, icon: <img src="https://i.imgur.com/AsipFTn.png" className="w-full h-full object-cover object-top" alt="비버 배리어프리 키오스크"/>, label: 'Web Design', title: '비버 배리어프리 키오스크', desc: 'NIA 공식 인증 배리어프리 키오스크 웹 디자인' },
@@ -24,9 +24,13 @@ const webProjects = [
 export default function WebSection() {
   const { openPopup } = usePopup();
   const [showAll, setShowAll] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setIsDesktop(window.innerWidth >= 768);
+  }, []);
   
   // 데스크톱에서는 8개를 보여줍니다. 모바일은 4개.
-  const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
   const initialCount = isDesktop ? 8 : 4;
   const displayedProjects = showAll ? webProjects : webProjects.slice(0, initialCount);
 
@@ -37,20 +41,20 @@ export default function WebSection() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {displayedProjects.map(proj => (
             <div key={proj.id} onClick={() => openPopup(proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">
-              <div className="h-32 md:h-44 lg:h-52 bg-purple-900/10 flex items-center justify-center text-4xl md:text-5xl lg:text-6xl relative overflow-hidden group-hover:bg-purple-800/30 transition-colors">
+              <div className="h-32 md:h-44 lg:h-52 bg-primary/5 flex items-center justify-center text-4xl md:text-5xl lg:text-6xl relative overflow-hidden group-hover:bg-primary/20 transition-colors">
                 {proj.icon}
               </div>
-              <div className="p-3 md:p-5 bg-black/40 border-t border-white/5 flex-1 flex flex-col">
-                <div className="text-[9px] md:text-[10px] text-purple-400 tracking-widest uppercase mb-1 md:mb-2 font-bold">{proj.label}</div>
-                <div className="font-bold text-[0.8rem] md:text-[0.95rem] text-white mb-1 md:mb-2 group-hover:text-purple-300 transition-colors leading-tight line-clamp-1">{proj.title}</div>
-                <div className="text-[10px] md:text-xs text-gray-400 leading-snug line-clamp-2">{proj.desc}</div>
+              <div className="p-3 md:p-5 bg-card/60 backdrop-blur-md border-t border-border flex-1 flex flex-col">
+                <div className="text-[9px] md:text-[10px] text-primary tracking-widest uppercase mb-1 md:mb-2 font-bold">{proj.label}</div>
+                <div className="font-bold text-[0.8rem] md:text-[0.95rem] text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors leading-tight line-clamp-1">{proj.title}</div>
+                <div className="text-[10px] md:text-xs text-muted-foreground leading-snug line-clamp-2">{proj.desc}</div>
               </div>
             </div>
           ))}
         </div>
         {!showAll && webProjects.length > initialCount && (
           <div className="mt-10 md:mt-16 text-center">
-            <button onClick={() => setShowAll(true)} className="px-8 py-3 md:px-10 md:py-3.5 border border-purple-500/50 text-purple-300 rounded-lg text-xs md:text-sm font-bold tracking-[0.2em] hover:bg-purple-600 hover:text-white hover:border-purple-500 hover:shadow-[0_0_20px_rgba(126,34,206,0.4)] transition-all uppercase">
+            <button onClick={() => setShowAll(true)} className="px-8 py-3 md:px-10 md:py-3.5 border border-primary/50 text-primary rounded-lg text-xs md:text-sm font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
               더보기 ＋
             </button>
           </div>

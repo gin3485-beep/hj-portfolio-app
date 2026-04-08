@@ -13,20 +13,20 @@ export default function PrintSection() {
   const { openPopup } = usePopup();
 
   return (
-    <section id="print" className="py-20 px-4 md:px-12 relative z-10 before:absolute before:-inset-4 before:bg-[#070211] before:-z-10 before:skew-y-[2deg] before:-my-10 border-y border-purple-500/10 mt-10 mb-20 lg:mb-32">
+    <section id="print" className="py-20 px-4 md:px-12 relative z-10 before:absolute before:-inset-4 before:bg-secondary/20 dark:before:bg-[#070211] before:-z-10 before:skew-y-[2deg] before:-my-10 border-y border-border mt-10 mb-20 lg:mb-32">
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="03" title="Print Design" description="오프라인 공간에서도 브랜드를 말하는 인쇄물 디자인 프로젝트입니다." />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {printProjects.map(proj => (
             <div key={proj.id} onClick={() => openPopup(proj.icon)} className="glass-card cursor-pointer group flex overflow-hidden">
-              <div className="w-24 md:w-32 lg:w-40 shrink-0 bg-gradient-to-br from-indigo-900/20 to-purple-800/10 flex items-center justify-center text-4xl md:text-5xl lg:text-5xl group-hover:from-indigo-800/40 group-hover:to-purple-700/30 transition-colors drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+              <div className="w-24 md:w-32 lg:w-40 shrink-0 bg-primary/5 flex items-center justify-center text-4xl md:text-5xl lg:text-5xl group-hover:bg-primary/20 transition-colors drop-shadow-[0_0_15px_rgba(126,34,206,0.1)] dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                 {proj.icon}
               </div>
-              <div className="p-4 md:p-6 lg:p-8 bg-black/40 border-l border-white/5 flex flex-col justify-center w-full">
-                <div className="text-[10px] md:text-xs text-purple-400 tracking-widest uppercase mb-1 md:mb-2 font-bold">{proj.label}</div>
-                <div className="font-bold text-[0.85rem] md:text-lg text-white mb-1 md:mb-2 group-hover:text-purple-300 transition-colors">{proj.title}</div>
-                <div className="text-[11px] md:text-[0.85rem] text-gray-400 leading-snug md:leading-relaxed">{proj.desc}</div>
+              <div className="p-4 md:p-6 lg:p-8 bg-card md:bg-transparent border-l border-border flex flex-col justify-center w-full">
+                <div className="text-[10px] md:text-xs text-primary tracking-widest uppercase mb-1 md:mb-2 font-bold">{proj.label}</div>
+                <div className="font-bold text-[0.85rem] md:text-lg text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors">{proj.title}</div>
+                <div className="text-[11px] md:text-[0.85rem] text-muted-foreground leading-snug md:leading-relaxed">{proj.desc}</div>
               </div>
             </div>
           ))}
