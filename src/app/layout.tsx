@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${inter.className} antialiased selection:bg-purple-500/30 overflow-x-hidden`}>
+      <body className={`${inter.className} antialiased selection:bg-primary/30 overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

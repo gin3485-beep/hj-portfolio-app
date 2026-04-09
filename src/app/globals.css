@@ -33,25 +33,25 @@
 }
 
 :root {
-  /* Light Mode (Sophisticated White) */
-  --background: oklch(0.99 0.01 300);
+  /* Light Mode */
+  --background: #ffffff;
   --foreground: oklch(0.2 0.05 300);
   --card: oklch(1 0 0 / 0.6);
   --card-foreground: oklch(0.2 0.05 300);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2 0.05 300);
-  --primary: oklch(0.6 0.2 290);
-  --primary-foreground: oklch(0.99 0 0);
+  --primary: #2E75FF;
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.95 0.02 300);
   --secondary-foreground: oklch(0.2 0.05 300);
   --muted: oklch(0.95 0.02 300);
   --muted-foreground: oklch(0.4 0.05 300);
-  --accent: oklch(0.9 0.05 290);
+  --accent: #2E75FF;
   --accent-foreground: oklch(0.2 0.05 300);
   --destructive: oklch(0.6 0.2 20);
   --border: oklch(0.85 0.02 300 / 0.5);
   --input: oklch(0.9 0.02 300 / 0.5);
-  --ring: oklch(0.6 0.2 290);
+  --ring: #2E75FF;
   --radius: 1rem;
 }
 
@@ -63,17 +63,17 @@
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.12 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.65 0.2 290); /* 포인트 보라색은 유지 */
-  --primary-foreground: oklch(0.99 0 0);
+  --primary: #2E75FF;
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.18 0.01 0);
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.18 0 0);
   --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.2 0.02 290);
+  --accent: #2E75FF;
   --accent-foreground: oklch(0.98 0 0);
   --border: oklch(0.25 0.01 0 / 0.8); /* 아주 미세한 경계선 */
   --input: oklch(0.2 0.01 0);
-  --ring: oklch(0.65 0.2 290);
+  --ring: #2E75FF;
 }
 
 @layer base {
@@ -84,18 +84,7 @@
     @apply bg-background text-foreground min-h-screen transition-colors duration-500;
     overflow-x: hidden;
   }
-  
-  /* Theme-aware backgrounds */
-  :root body {
-    background-image: radial-gradient(circle at top right, oklch(0.95 0.05 290 / 0.15), transparent 40%),
-                      radial-gradient(circle at bottom left, oklch(0.95 0.05 300 / 0.1), transparent 40%);
-  }
-  
-  .dark body {
-    background-color: oklch(0.1 0 0);
-    /* HeroUI 스타일은 복잡한 그라데이션보다 깔끔한 단색 또는 아주 미세한 상단 빛 효과를 선호함 */
-    background-image: radial-gradient(circle at top, oklch(0.2 0.02 290 / 0.1), transparent 80%);
-  }
+
 
   html {
     scroll-behavior: smooth;
@@ -103,20 +92,20 @@
 }
 
 .glass-card {
-  @apply bg-card backdrop-blur-xl border border-border shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] rounded-2xl transition-all duration-300;
+  @apply bg-card backdrop-blur-xl border border-border rounded-[10px] transition-all duration-300;
 }
 
 .dark .glass-card {
   /* 다크 모드에서는 그림자보다 미세한 외곽선 강조 */
-  @apply shadow-[0_4px_24px_0_rgba(0,0,0,0.6)] border-white/5;
+  @apply  border-white/5;
 }
 
 .glass-card:hover {
-  @apply border-primary/30 transform -translate-y-1 shadow-[0_12px_40px_0_rgba(126,34,206,0.1)];
+  @apply border-primary/30 transform -translate-y-1 ;
 }
 
 .dark .glass-card:hover {
-  @apply border-white/10 bg-white/5 shadow-[0_12px_40px_0_rgba(0,0,0,0.8)];
+  @apply border-white/10 bg-white/5 ;
 }
 
 .glass-nav {
@@ -124,9 +113,9 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-500;
+  @apply text-primary;
 }
 
 .dark .text-gradient {
-  @apply from-purple-400 to-indigo-400; /* 다크 모드에서 좀 더 선명한 보라-인디고 그라데이션 */
+  @apply text-primary; /* 다크 모드에서 좀 더 선명한 보라-인디고 그라데이션 */
 }

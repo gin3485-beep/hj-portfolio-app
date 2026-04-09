@@ -23,7 +23,7 @@ export default function UiUxSection() {
   const prev = () => setCur(c => (c - 1 + uiuxProjects.length) % uiuxProjects.length);
 
   return (
-    <section id="uiux" className="py-20 px-4 md:px-12 relative z-10 before:absolute before:-inset-4 before:bg-secondary/20 dark:before:bg-[#070211] before:-z-10 before:skew-y-[-2deg] before:-my-10 border-y border-border">
+    <section id="uiux" className="py-20 px-4 md:px-12">
       <SectionHeader label="01" title="UI / UX Design" description="브랜드 아이덴티티를 담은 웹사이트 디자인 및 구현 프로젝트입니다." />
       
       <div className="max-w-5xl mx-auto">
@@ -31,14 +31,14 @@ export default function UiUxSection() {
           <div className="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]" style={{ transform: `translateX(-${cur * 100}%)`}}>
             {uiuxProjects.map((p, i) => (
               <div key={i} className="min-w-full flex-col md:flex-row flex">
-                <div className="h-44 md:h-[400px] md:w-1/2 bg-primary/5 dark:bg-gradient-to-br dark:from-purple-800/10 dark:to-indigo-900/10 flex items-center justify-center text-6xl md:text-8xl shrink-0">
-                  <span className="drop-shadow-[0_0_20px_rgba(126,34,206,0.3)]">{p.icon}</span>
+                <div className="h-44 md:h-[400px] md:w-1/2 bg-primary/5 dark:bg-primary/10 flex items-center justify-center text-6xl md:text-8xl shrink-0">
+                  <span className="">{p.icon}</span>
                 </div>
                 <div className="p-6 md:p-12 flex flex-col justify-center bg-card md:bg-transparent border-t md:border-t-0 md:border-l border-border md:w-1/2">
-                  <div className="text-[10px] md:text-xs text-primary tracking-[0.2em] font-bold uppercase mb-2 md:mb-4">{p.label}</div>
+                  <div className="text-sm md:text-base text-primary tracking-wider font-bold uppercase mb-2 md:mb-4">{p.label}</div>
                   <div className="text-foreground font-black text-lg md:text-3xl mb-2 md:mb-4 leading-tight">{p.title}</div>
-                  <div className="text-[11px] md:text-sm text-muted-foreground leading-relaxed md:leading-loose mb-4 line-clamp-2 md:line-clamp-none">{p.desc}</div>
-                  <div className="text-[9px] md:text-xs text-primary/60 font-semibold">{p.period}</div>
+                  <div className="text-sm md:text-base text-muted-foreground leading-[1.2] mb-4 line-clamp-2 md:line-clamp-none">{p.desc}</div>
+                  <div className="text-sm md:text-base text-primary/60 font-semibold">{p.period}</div>
                 </div>
               </div>
             ))}
@@ -51,7 +51,7 @@ export default function UiUxSection() {
           </button>
           <div className="flex gap-2.5">
             {uiuxProjects.map((_, i) => (
-              <button key={i} onClick={() => setCur(i)} className={`h-1.5 md:h-2 rounded-full transition-all duration-500 ${i === cur ? 'w-6 md:w-8 bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50 w-1.5 md:w-2'}`} />
+              <button key={i} onClick={() => setCur(i)} className={`h-1.5 md:h-2 rounded-full transition-all duration-500 ${i === cur ? 'w-6 md:w-8 bg-primary' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50 w-1.5 md:w-2'}`} />
             ))}
           </div>
           <button onClick={next} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-primary/40 hover:text-primary hover:bg-primary/10 transition-all">

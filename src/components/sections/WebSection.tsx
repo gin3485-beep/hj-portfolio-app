@@ -4,8 +4,8 @@ import { usePopup } from '../ui/PopupProvider';
 import { useState, useEffect } from 'react';
 
 const webProjects = [
-  { id: 1, icon: <img src="https://i.imgur.com/AsipFTn.png" className="w-full h-full object-cover object-top" alt="비버 배리어프리 키오스크"/>, label: 'Web Design', title: '비버 배리어프리 키오스크', desc: 'NIA 공식 인증 배리어프리 키오스크 웹 디자인' },
-  { id: 2, icon: '🎨', label: 'Portfolio', title: '작가 포트폴리오 사이트', desc: '갤러리 중심의 인터랙티브 포트폴리오 웹사이트' },
+  { id: 1, icon: <img src="https://i.imgur.com/AsipFTn.png" className="w-full h-full object-cover object-top" alt="비버 배리어프리 키오스크" />, imgUrl: 'https://i.imgur.com/AsipFTn.png', label: 'Web Design', title: '비버 배리어프리 키오스크', desc: 'NIA 공식 인증 배리어프리 키오스크 웹 디자인' },
+  { id: 2, icon: <img src="/images/orderqueen2.0Xskb.png" className="w-full h-full object-cover object-top" alt="SKB콜라보 이벤트" />, imgUrl: '/images/orderqueen2.0Xskb.png', label: '상세페이지', title: 'SKB콜라보 이벤트', desc: '자사의 신제품과 SKB인터넷 패키지 콜라보를 알리는 이벤트 상세페이지' },
   { id: 3, icon: '🍽️', label: 'Restaurant', title: '레스토랑 브랜딩 웹', desc: '감성적인 식음료 브랜드를 위한 웹사이트 디자인' },
   { id: 4, icon: '🚀', label: 'Startup', title: '스타트업 랜딩페이지', desc: '전환율에 최적화된 SaaS 스타트업 랜딩 페이지' },
   { id: 5, icon: '📸', label: 'Photography', title: '사진작가 웹사이트', desc: '비주얼 중심의 사진작가 개인 브랜딩 사이트' },
@@ -29,32 +29,32 @@ export default function WebSection() {
   useEffect(() => {
     setIsDesktop(window.innerWidth >= 768);
   }, []);
-  
-  // 데스크톱에서는 8개를 보여줍니다. 모바일은 4개.
-  const initialCount = isDesktop ? 8 : 4;
+
+  // 데스크톱에서는 3열 그리드에 맞춰 9개를 보여줍니다. 모바일은 4개.
+  const initialCount = isDesktop ? 9 : 4;
   const displayedProjects = showAll ? webProjects : webProjects.slice(0, initialCount);
 
   return (
     <section id="web" className="py-20 px-4 md:px-12">
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="02" title="Web Design" description="사용자 중심의 인터페이스 설계와 경험 디자인 프로젝트입니다." />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {displayedProjects.map(proj => (
-            <div key={proj.id} onClick={() => openPopup(proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">
+            <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-full max-w-[1200px] h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">
               <div className="h-32 md:h-44 lg:h-52 bg-primary/5 flex items-center justify-center text-4xl md:text-5xl lg:text-6xl relative overflow-hidden group-hover:bg-primary/20 transition-colors">
                 {proj.icon}
               </div>
               <div className="p-3 md:p-5 bg-card/60 backdrop-blur-md border-t border-border flex-1 flex flex-col">
-                <div className="text-[9px] md:text-[10px] text-primary tracking-widest uppercase mb-1 md:mb-2 font-bold">{proj.label}</div>
-                <div className="font-bold text-[0.8rem] md:text-[0.95rem] text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors leading-tight line-clamp-1">{proj.title}</div>
-                <div className="text-[10px] md:text-xs text-muted-foreground leading-snug line-clamp-2">{proj.desc}</div>
+                <div className="text-sm md:text-base text-primary tracking-wider uppercase mb-1 md:mb-2 font-bold">{proj.label}</div>
+                <div className="font-bold text-sm md:text-base text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors leading-tight line-clamp-1">{proj.title}</div>
+                <div className="text-sm md:text-base text-muted-foreground leading-snug line-clamp-2">{proj.desc}</div>
               </div>
             </div>
           ))}
         </div>
         {!showAll && webProjects.length > initialCount && (
           <div className="mt-10 md:mt-16 text-center">
-            <button onClick={() => setShowAll(true)} className="px-8 py-3 md:px-10 md:py-3.5 border border-primary/50 text-primary rounded-lg text-xs md:text-sm font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
+            <button onClick={() => setShowAll(true)} className="px-8 py-3 md:px-10 md:py-3.5 border border-primary/50 text-primary rounded-lg text-sm md:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
               더보기 ＋
             </button>
           </div>
