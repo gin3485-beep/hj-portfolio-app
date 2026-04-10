@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import SectionHeader from '../ui/SectionHeader';
 import { usePopup } from '../ui/PopupProvider';
 import { useState, useEffect } from 'react';
@@ -35,26 +35,26 @@ export default function WebSection() {
   const displayedProjects = showAll ? webProjects : webProjects.slice(0, initialCount);
 
   return (
-    <section id="web" className="py-20 px-4 md:px-12">
+    <section id="web" className="py-20 px-4 sm:px-12">
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="02" title="Web Design" description="사용자 중심의 인터페이스 설계와 경험 디자인 프로젝트입니다." />
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {displayedProjects.map(proj => (
             <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-[1200px] max-w-full h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">
-              <div className="h-32 md:h-44 lg:h-52 bg-primary/5 flex items-center justify-center text-4xl md:text-5xl lg:text-6xl relative overflow-hidden group-hover:bg-primary/20 transition-colors">
+              <div className="h-32 sm:h-44 md:h-52 bg-primary/5 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl relative overflow-hidden group-hover:bg-primary/20 transition-colors">
                 {proj.icon}
               </div>
-              <div className="p-3 md:p-5 bg-card/60 backdrop-blur-md border-t border-border flex-1 flex flex-col">
+              <div className="p-3 sm:p-5 bg-card/60 backdrop-blur-md border-t border-border flex-1 flex flex-col">
                 <div className="text-xs text-primary tracking-wider uppercase mb-[5px] font-bold">{proj.label}</div>
-                <div className="font-bold text-sm md:text-base text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors leading-tight line-clamp-1">{proj.title}</div>
-                <div className="text-sm md:text-base text-muted-foreground leading-snug line-clamp-2">{proj.desc}</div>
+                <div className="font-bold text-sm sm:text-base text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors leading-tight line-clamp-1">{proj.title}</div>
+                <div className="text-sm sm:text-base text-muted-foreground leading-snug line-clamp-2">{proj.desc}</div>
               </div>
             </div>
           ))}
         </div>
         {!showAll && webProjects.length > initialCount && (
-          <div className="mt-10 md:mt-16 text-center">
-            <button onClick={() => setShowAll(true)} className="px-8 py-3 md:px-10 md:py-3.5 border border-primary/50 text-primary rounded-[10px] text-sm md:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
+          <div className="mt-10 sm:mt-16 text-center">
+            <button onClick={() => setShowAll(true)} className="px-8 py-3 sm:px-10 sm:py-3.5 border border-primary/50 text-primary rounded-[10px] text-sm sm:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
               더보기 ＋
             </button>
           </div>

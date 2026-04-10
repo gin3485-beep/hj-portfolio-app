@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useEffect, useState } from 'react';
 
 import { ThemeToggle } from '../ui/ThemeToggle';
@@ -36,7 +36,7 @@ export default function Navbar() {
   };
 
   const getNavClass = (section: string) => {
-    const baseClass = "px-3 md:px-5 py-1.5 md:py-2 text-sm sm:text-base md:text-base font-bold rounded-full transition-all duration-300";
+    const baseClass = "px-3 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-base sm:text-base font-bold rounded-full transition-all duration-300";
     if (activeSection === section) {
       return `${baseClass} text-white bg-primary`;
     }
@@ -44,13 +44,13 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`fixed top-0 max-w-6xl w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-3 px-6 md:px-12' : 'bg-transparent py-5 md:py-8 px-6 md:px-12'} flex justify-between items-center`}>
-      <button onClick={() => scrollTo('hero')} className="text-xl md:text-2xl font-black tracking-[0.15em] text-transparent bg-clip-text bg-primary dark:from-primary dark:to-accent hover:opacity-80 transition-all cursor-pointer text-left">
+    <nav className={`fixed top-0 max-w-6xl w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-3 px-6 sm:px-12' : 'bg-transparent py-5 sm:py-8 px-6 sm:px-12'} flex justify-between items-center`}>
+      <button onClick={() => scrollTo('hero')} className="text-xl sm:text-2xl font-black tracking-[0.15em] text-transparent bg-clip-text bg-primary dark:from-primary dark:to-accent hover:opacity-80 transition-all cursor-pointer text-left">
         HJ.DESIGN
       </button>
       
-      <div className="flex items-center gap-2 md:gap-4">
-        <ul className="flex items-center gap-1 sm:gap-2 md:gap-4 bg-white/5 dark:bg-black/10 backdrop-blur-md px-3 md:px-6 py-2 rounded-full border border-black/5 dark:border-white/10 ">
+      <div className="flex items-center gap-2 sm:gap-4">
+        <ul className="flex items-center gap-1 sm:gap-2 sm:gap-4 bg-white/5 dark:bg-black/10 backdrop-blur-md px-3 sm:px-6 py-2 rounded-full border border-black/5 dark:border-white/10 ">
           <li>
             <button onClick={() => scrollTo('hero')} className={getNavClass('hero')}>
               Home
