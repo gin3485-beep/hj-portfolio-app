@@ -33,27 +33,27 @@ export default function PrintSection() {
         <SectionHeader label="03" title="Print Design" description="오프라인 공간에서도 브랜드를 말하는 인쇄물 디자인 프로젝트입니다." />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          {displayedProjects.map(proj => (
-            <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-[1200px] max-w-full h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex overflow-hidden">
-              <div className="w-24 sm:w-32 md:w-40 shrink-0 bg-primary/5 flex items-center justify-center text-4xl sm:text-5xl md:text-5xl group-hover:bg-primary/20 transition-colors  ">
-                {proj.icon}
-              </div>
-              <div className="p-4 sm:p-6 md:p-8 bg-card sm:bg-transparent border-l border-border flex flex-col justify-center w-full">
-                <div className="text-xs text-primary tracking-wider uppercase mb-[5px] font-bold">{proj.label}</div>
-                <div className="font-bold text-sm sm:text-lg text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors">{proj.title}</div>
-                <div className="text-sm sm:text-base text-muted-foreground leading-snug sm:leading-relaxed">{proj.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-        {!showAll && printProjects.length > initialCount && (
-          <div className="mt-10 sm:mt-12 text-center">
-            <button onClick={() => setShowAll(true)} className="px-8 py-3 sm:px-10 sm:py-3.5 border border-primary/50 text-primary rounded-[10px] text-sm sm:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
-              더보기 ＋
-            </button>
+          {displayedProjects.map(proj => (0
+            < div key = { proj.id } onClick = {() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-[1200px] max-w-full h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex overflow-hidden">
+          <div className="w-24 sm:w-32 md:w-40 shrink-0 bg-primary/5 flex items-center justify-center text-4xl sm:text-5xl md:text-5xl group-hover:bg-primary/20 transition-colors  ">
+            {proj.icon}
           </div>
-        )}
+          <div className="p-4 sm:p-6 md:p-8 bg-card sm:bg-transparent border-l border-border flex flex-col justify-center w-full">
+            <div className="text-xs text-primary tracking-wider uppercase mb-[5px] font-bold">{proj.label}</div>
+            <div className="font-bold text-sm sm:text-lg text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors">{proj.title}</div>
+            <div className="text-sm sm:text-base text-muted-foreground leading-snug sm:leading-relaxed">{proj.desc}</div>
+          </div>
+        </div>
+          ))}
       </div>
-    </section>
+      {!showAll && printProjects.length > initialCount && (
+        <div className="mt-10 sm:mt-12 text-center">
+          <button onClick={() => setShowAll(true)} className="px-8 py-3 sm:px-10 sm:py-3.5 border border-primary/50 text-primary rounded-[10px] text-sm sm:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
+            더보기 ＋
+          </button>
+        </div>
+      )}
+    </div>
+    </section >
   );
 }
