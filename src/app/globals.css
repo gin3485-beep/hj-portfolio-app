@@ -63,17 +63,17 @@
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.12 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: #2E75FF;
+  --primary: #6a9cff;
   --primary-foreground: #ffffff;
   --secondary: oklch(0.18 0.01 0);
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.18 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: #2E75FF;
+  --muted-foreground: oklch(0.98 0 0); /* 회색에서 흰색 톤으로 가시성 상향 */
+  --accent: #6a9cff;
   --accent-foreground: oklch(0.98 0 0);
-  --border: oklch(0.25 0.01 0 / 0.8); /* 아주 미세한 경계선 */
+  --border: oklch(0.4 0 0 / 0.8); /* 경계선 가시성 대폭 상향 */
   --input: oklch(0.2 0.01 0);
-  --ring: #2E75FF;
+  --ring: #6a9cff;
 }
 
 @layer base {
@@ -96,8 +96,8 @@
 }
 
 .dark .glass-card {
-  /* 다크 모드에서는 그림자보다 미세한 외곽선 강조 */
-  @apply  border-white/5;
+  /* 다크 모드에서는 확실히 보이는 밝은 외곽선 */
+  @apply  border-white/40;
 }
 
 .glass-card:hover {
@@ -105,7 +105,7 @@
 }
 
 .dark .glass-card:hover {
-  @apply border-white/10 bg-white/5 ;
+  @apply border-white/60 bg-white/10 ;
 }
 
 .glass-nav {

@@ -40,12 +40,12 @@ export default function WebSection() {
         <SectionHeader label="02" title="Web Design" description="사용자 중심의 인터페이스 설계와 경험 디자인 프로젝트입니다." />
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {displayedProjects.map(proj => (
-            <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-full max-w-[1200px] h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">
+            <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-[1200px] max-w-full h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">
               <div className="h-32 md:h-44 lg:h-52 bg-primary/5 flex items-center justify-center text-4xl md:text-5xl lg:text-6xl relative overflow-hidden group-hover:bg-primary/20 transition-colors">
                 {proj.icon}
               </div>
               <div className="p-3 md:p-5 bg-card/60 backdrop-blur-md border-t border-border flex-1 flex flex-col">
-                <div className="text-sm md:text-base text-primary tracking-wider uppercase mb-1 md:mb-2 font-bold">{proj.label}</div>
+                <div className="text-xs text-primary tracking-wider uppercase mb-[5px] font-bold">{proj.label}</div>
                 <div className="font-bold text-sm md:text-base text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors leading-tight line-clamp-1">{proj.title}</div>
                 <div className="text-sm md:text-base text-muted-foreground leading-snug line-clamp-2">{proj.desc}</div>
               </div>
@@ -54,7 +54,7 @@ export default function WebSection() {
         </div>
         {!showAll && webProjects.length > initialCount && (
           <div className="mt-10 md:mt-16 text-center">
-            <button onClick={() => setShowAll(true)} className="px-8 py-3 md:px-10 md:py-3.5 border border-primary/50 text-primary rounded-lg text-sm md:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
+            <button onClick={() => setShowAll(true)} className="px-8 py-3 md:px-10 md:py-3.5 border border-primary/50 text-primary rounded-[10px] text-sm md:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
               더보기 ＋
             </button>
           </div>

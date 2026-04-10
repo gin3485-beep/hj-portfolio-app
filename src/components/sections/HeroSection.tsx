@@ -26,7 +26,7 @@ export default function HeroSection() {
           아이디어를 시각으로, 경험을 디자인으로. UI/UX · Web · Print 전문 디자이너입니다.
         </p>
         
-        <button onClick={scrollToContact} className="px-8 py-3.5 md:px-10 md:py-4 bg-primary hover:bg-primary border border-primary text-white rounded-xl font-bold tracking-wide transition-all    dark: transform hover:-translate-y-1 text-sm md:text-base bg-primary">
+        <button onClick={scrollToContact} className="px-8 py-3.5 md:px-10 md:py-4 bg-primary hover:bg-primary border border-primary text-white rounded-[10px] font-bold tracking-wide transition-all    dark: transform hover:-translate-y-1 text-sm md:text-base bg-primary">
           CONTACT ME
         </button>
       </div>
