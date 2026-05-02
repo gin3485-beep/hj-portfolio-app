@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useState, useEffect } from 'react';
 import SectionHeader from '../ui/SectionHeader';
 
@@ -24,7 +24,7 @@ export default function UiUxSection() {
 
   return (
     <section id="uiux" className="py-20 px-4 sm:px-12">
-      <SectionHeader label="01" title="UI / UX Design" description="브랜드 아이덴티티를 담은 웹사이트 디자인 및 구현 프로젝트입니다." />
+      <SectionHeader label="01" title="UI / UX Design" description="사용자 중심의 인터페이스 설계와 경험 디자인 프로젝트입니다." />
       
       <div className="max-w-5xl mx-auto">
         <div className="relative overflow-hidden glass-card rounded-2xl sm:rounded-3xl">

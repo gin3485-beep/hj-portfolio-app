@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useState, useRef, useEffect } from 'react';
 
 export default function ContactSection() {
@@ -37,7 +37,7 @@ export default function ContactSection() {
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground mb-4 sm:mb-6">Contact</h2>
           <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-[1.05rem] mb-6 sm:mb-10">
-            프로젝트 문의, 협업 제안, 채용 관련 연락 모두 환영합니다.<br /> 빠르게 답변 드리겠습니다.
+            프로젝트 문의, 협업 제안, 채용 관련 연락 모두<br />환영합니다.<br />빠르게 답변 드리겠습니다.
           </p>
           
           <div className="flex flex-col gap-5 sm:gap-6 mt-2 glass-card p-5 sm:p-8 bg-card/40">
