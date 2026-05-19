@@ -1,15 +1,21 @@
-﻿'use client';
+'use client';
 import SectionHeader from '../ui/SectionHeader';
 import { usePopup } from '../ui/PopupProvider';
 import { useState, useEffect } from 'react';
 
 const printProjects = [
   {
-    id: 1, icon: <img src="/images/sum_print_design02.png" className="w-full h-full object-cover" alt="문화 행사 포스터" />,
-    imgUrl: '/images/print_design02.png', label: 'leaflet', title: '박람회 특가 리플릿', desc: '박람회 참가를 위한 리플릿 인쇄 디자인'
+    id: 1, icon: <img src="/images/sum_print_design01.png" className="w-full h-full object-cover" alt="박람회 브로슈어" />,
+    imgUrl: '/images/print_design01.png', label: 'leaflet', title: '박람회 가격정책 안내 브로슈어', desc: <>박람회 현장에서 잠재 고객에게 배포하기<br />위해 제작된 현장 배포용 브로슈어</>
   },
-  { id: 2, icon: '📰', label: 'Editorial', title: '사내 매거진 편집 디자인', desc: '격월 발행되는 기업 사내보 전체 레이아웃 및 편집 디자인' },
-  { id: 3, icon: '🖼️', label: 'Poster', title: '문화 행사 포스터 시리즈', desc: '지역 문화 축제를 위한 포스터 및 배너 시리즈 디자인' },
+  {
+    id: 2, icon: <img src="/images/sum_print_design02.png" className="w-full h-full object-cover" alt="축제 제안 리플릿" />,
+    imgUrl: '/images/print_design02.png', label: 'leaflet', title: '축제 키오스크 렌탈 홍보 리플릿', desc: <>축제 주최측 및 부스 운영자를 대상으로<br />무인 결제 키오스크 대여를 제안하는 리플릿</>
+  },
+  {
+    id: 3, icon: <img src="/images/sum_print_design03.png" className="w-full h-full object-cover" alt="축제 제안 리플릿" />,
+    imgUrl: '/images/print_design03.png', label: 'leaflet', title: '자사 QR오더 서비스 도입 제안서', desc: <>자사의 QR오더 신규 가맹점 유치 및<br />세일즈를 돕기 위해 제작된 제안서</>
+  },
   { id: 4, icon: '📦', label: 'Packaging', title: '식품 패키지 디자인', desc: '친환경 식품 브랜드의 패키지 아이덴티티 전체 제작' },
   { id: 5, icon: '📇', label: 'Business Card', title: '명함 세트 디자인', desc: '기업의 첫인상을 돋보이게 하는 프리미엄 명함 제작' },
   { id: 6, icon: '🏷️', label: 'Label', title: '브랜드 라벨 패키징', desc: '주류 브랜드 리뉴얼을 위한 감각적인 라벨 디자인' },

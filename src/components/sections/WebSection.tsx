@@ -4,9 +4,9 @@ import { usePopup } from '../ui/PopupProvider';
 import { useState, useEffect } from 'react';
 
 const webProjects = [
-  { id: 1, icon: <img src="https://i.imgur.com/AsipFTn.png" className="w-full h-full object-cover object-top" alt="비버 배리어프리 키오스크" />, imgUrl: 'https://i.imgur.com/AsipFTn.png', label: 'Web Design', title: '비버 배리어프리 키오스크', desc: 'NIA 공식 인증 배리어프리 키오스크 웹 디자인' },
-  { id: 2, icon: <img src="/images/orderqueen2.0Xskb.png" className="w-full h-full object-cover object-top" alt="SKB콜라보 이벤트" />, imgUrl: '/images/orderqueen2.0Xskb.png', label: '상세페이지', title: 'SKB콜라보 이벤트', desc: '자사의 신제품과 SKB인터넷 패키지 콜라보를 알리는 이벤트 상세페이지' },
-  { id: 3, icon: '🍽️', label: 'Restaurant', title: '레스토랑 브랜딩 웹', desc: '감성적인 식음료 브랜드를 위한 웹사이트 디자인' },
+  { id: 1, icon: <img src="/images/web_design01.png" className="w-full h-full object-cover object-top" alt="SKB콜라보" />, imgUrl: '/images/web_design01.png', label: '상세페이지', title: 'SKB 콜라보 이벤트 랜딩페이지', desc: '자사의 제품과 SKB인터넷 패키지 콜라보를 알리는 이벤트 상세페이지' },
+  { id: 2, icon: <img src="/images/web_design02.png" className="w-full h-full object-cover object-top" alt="소상공인 스마트상점" />, imgUrl: '/images/web_design02.png', label: '상세페이지', title: '정부지원사업 상세페이지', desc: '스마트상점 도입 사업의 혜택을 알리고 신청을 유도하기 위해 제작된 상세페이지' },
+  { id: 3, icon: <img src="/images/web_design03.png" className="w-full h-full object-cover object-top" alt="신제품출시" />, imgUrl: '/images/web_design03.png', label: '상세페이지', title: '자사 신규 제품 홍보 프로모션 페이지', desc: '새롭게 출시된 자사 제품을 소개하고 초기 판매를 유도하는 상세페이지' },
   { id: 4, icon: '🚀', label: 'Startup', title: '스타트업 랜딩페이지', desc: '전환율에 최적화된 SaaS 스타트업 랜딩 페이지' },
   { id: 5, icon: '📸', label: 'Photography', title: '사진작가 웹사이트', desc: '비주얼 중심의 사진작가 개인 브랜딩 사이트' },
   { id: 6, icon: '🏥', label: 'Medical', title: '병원 홈페이지 리뉴얼', desc: '신뢰감과 접근성을 높인 의료기관 웹 리뉴얼' },
