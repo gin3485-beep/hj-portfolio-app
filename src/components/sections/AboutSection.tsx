@@ -4,15 +4,15 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-20 px-4 sm:px-12">
       <div className="flex flex-col gap-8 w-full max-w-5xl mx-auto">
-        <SectionHeader 
-          label="About Me" 
+        <SectionHeader
+          label="About Me"
           title={<>소통하는 디자이너<br className="sm:hidden" /> 장희진입니다.</>}
           description="UI/UX 설계부터 웹, 인쇄물까지 폭넓은 시각 언어로 브랜드의 가치를 완성합니다."
           showPart={false}
         />
-        
+
         <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 w-full">
-          
+
           {/* Left Column (Profile & Skills) */}
           <div className="flex flex-col gap-6 sm:w-1/3 shrink-0">
             {/* Profile Card */}
@@ -79,7 +79,7 @@ export default function AboutSection() {
             <div className="glass-card p-6 sm:p-8 flex-1">
               <div className="text-sm sm:text-base text-primary tracking-widest uppercase mb-6 font-bold">경력</div>
               <div className="relative pl-6 border-l-[3px] border-primary/20 flex flex-col gap-8">
-                
+
                 <div className="relative">
                   <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-primary ring-4 ring-background"></div>
                   <div className="font-bold text-[0.95rem] sm:text-lg text-foreground mb-1">엔프라미스</div>
@@ -104,7 +104,7 @@ export default function AboutSection() {
               </div>
             </div>
           </div>
-          
+
         </div>
         {/* Skills (Mobile) */}
         <div className="block sm:hidden glass-card p-5">
