@@ -1,4 +1,4 @@
-﻿import SectionHeader from '../ui/SectionHeader';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function AboutSection() {
   return (
@@ -17,7 +17,9 @@ export default function AboutSection() {
           <div className="flex flex-col gap-6 sm:w-1/3 shrink-0">
             {/* Profile Card */}
             <div className="glass-card p-5 sm:p-8 flex flex-col items-center gap-5 sm:gap-6 text-center">
-              <div className="w-[85%] sm:w-[90%] max-w-[240px] sm:max-w-none aspect-square shrink-0 bg-primary/10 border border-primary/20 rounded-[15px]"></div>
+              <div className="w-[85%] sm:w-[90%] max-w-[240px] sm:max-w-none aspect-square shrink-0 rounded-[15px] overflow-hidden bg-primary/10 border border-primary/20">
+                <img src="/images/profile.jpg" alt="장희진 프로필" className="w-full h-full object-cover" />
+              </div>
               <div className="w-full text-center">
                 <div className="text-base sm:text-xl font-bold text-foreground mb-2 sm:mb-4">장희진</div>
                 <div className="flex flex-col gap-1.5 sm:gap-2 text-sm sm:text-base text-muted-foreground">

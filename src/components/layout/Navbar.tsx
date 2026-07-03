@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useEffect, useState } from 'react';
 
 import { ThemeToggle } from '../ui/ThemeToggle';
@@ -61,11 +61,11 @@ export default function Navbar() {
               About
             </button>
           </li>
-          <li>
+          {/* <li>
             <button onClick={() => scrollTo('contact')} className={getNavClass('contact')}>
               Contact
             </button>
-          </li>
+          </li> */}
         </ul>
         <ThemeToggle />
       </div>

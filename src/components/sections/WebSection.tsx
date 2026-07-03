@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 
 const webProjects = [
   { id: 1, icon: <img src="/images/web_design01.png" className="w-full h-full object-cover object-top" alt="SKB콜라보" />, imgUrl: '/images/web_design01.png', label: '상세페이지', title: 'SKB 콜라보 이벤트 랜딩페이지', desc: '자사의 제품과 SKB인터넷 패키지 콜라보를 알리는 이벤트 상세페이지' },
-  { id: 2, icon: <img src="/images/web_design02.png" className="w-full h-full object-cover object-top" alt="소상공인 스마트상점" />, imgUrl: '/images/web_design02.png', label: '상세페이지', title: '정부지원사업 상세페이지', desc: '스마트상점 도입 사업의 혜택을 알리고 신청을 유도하기 위해 제작된 상세페이지' },
+  { id: 2, icon: <img src="/images/web_design04.png" className="w-full h-full object-cover object-top" alt="소상공인 스마트상점" />, imgUrl: '/images/web_design04.png', label: '상세페이지', title: '정부지원사업 상세페이지', desc: '스마트상점 도입 사업의 혜택을 알리고 신청을 유도하기 위해 제작된 상세페이지' },
   { id: 3, icon: <img src="/images/web_design03.png" className="w-full h-full object-cover object-top" alt="신제품출시" />, imgUrl: '/images/web_design03.png', label: '상세페이지', title: '자사 신규 제품 홍보 프로모션 페이지', desc: '새롭게 출시된 자사 제품을 소개하고 초기 판매를 유도하는 상세페이지' },
-  { id: 4, icon: '🚀', label: 'Startup', title: '스타트업 랜딩페이지', desc: '전환율에 최적화된 SaaS 스타트업 랜딩 페이지' },
+  { id: 4, icon: <img src="/images/web_design02.png" className="w-full h-full object-cover object-top" alt="신제품출시" />, imgUrl: '/images/web_design02.png', label: '상세페이지', title: '자사 특수 상품 소개 페이지', desc: '배리어프리 키오스크의 차별화된 기능과 사용자 편의성을 소개하는 상세페이지' },
   { id: 5, icon: '📸', label: 'Photography', title: '사진작가 웹사이트', desc: '비주얼 중심의 사진작가 개인 브랜딩 사이트' },
   { id: 6, icon: '🏥', label: 'Medical', title: '병원 홈페이지 리뉴얼', desc: '신뢰감과 접근성을 높인 의료기관 웹 리뉴얼' },
   { id: 7, icon: '🎓', label: 'Education', title: '온라인 강의 플랫폼', desc: '학습 경험 최적화를 위한 교육 플랫폼 UI 설계' },
@@ -31,13 +31,13 @@ export default function WebSection() {
   }, []);
 
   // 데스크톱에서는 3열 그리드에 맞춰 9개를 보여줍니다. 모바일은 4개.
-  const initialCount = isDesktop ? 9 : 4;
+  const initialCount = isDesktop ? 6 : 4;
   const displayedProjects = showAll ? webProjects : webProjects.slice(0, initialCount);
 
   return (
     <section id="web" className="py-20 px-4 sm:px-12">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader label="02" title="Web Design" description="기업의 브랜드 아이덴티티를 바탕으로, 브랜드의 톤앤매너를 웹 환경에 감각적으로 시각화한 프로젝트입니다." />
+        <SectionHeader label="01" title="Web Design" description="기업의 브랜드 아이덴티티를 바탕으로, 브랜드의 톤앤매너를 웹 환경에 감각적으로 시각화한 프로젝트입니다." />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {displayedProjects.map(proj => (
             <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-[1200px] max-w-full h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">

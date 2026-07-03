@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -6,11 +6,11 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-start relative px-4 sm:px-12 pt-20">
+    <section id="hero" className="min-h-screen flex items-center justify-start relative px-4 sm:px-12 pt-4">
       {/* Background gradients removed */}
 
       
-      <div className="max-w-6xl w-full mx-auto flex flex-col items-start text-left z-10 mt-10">
+      <div className="max-w-6xl w-full mx-auto flex flex-col items-start text-left z-10">
         <div className="text-sm sm:text-base text-primary dark:text-primary tracking-[0.3em] font-bold mb-4 flex items-center justify-start gap-4">
           <span className="block w-8 sm:w-12 h-[2px] bg-primary"></span>
           ✦ DESIGNER & PUBLISHER

@@ -1,4 +1,4 @@
-﻿import HeroSection from '../components/sections/HeroSection';
+import HeroSection from '../components/sections/HeroSection';
 import AboutSection from '../components/sections/AboutSection';
 import UiUxSection from '../components/sections/UiUxSection';
 import WebSection from '../components/sections/WebSection';
@@ -12,10 +12,10 @@ export default function Home() {
       <div className="flex flex-col w-full px-2 sm:px-0">
         <HeroSection />
         <AboutSection />
-        <UiUxSection />
+        {/* <UiUxSection /> */}
         <WebSection />
         <PrintSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </div>
     </PopupProvider>
   );
