@@ -52,13 +52,13 @@ export default function WebSection() {
             </div>
           ))}
         </div>
-        {!showAll && webProjects.length > initialCount && (
+        {/* {!showAll && webProjects.length > initialCount && (
           <div className="mt-10 sm:mt-16 text-center">
             <button onClick={() => setShowAll(true)} className="px-8 py-3 sm:px-10 sm:py-3.5 border border-primary/50 text-primary rounded-[10px] text-sm sm:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
               더보기 ＋
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );

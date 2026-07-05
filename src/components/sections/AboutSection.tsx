@@ -51,11 +51,11 @@ export default function AboutSection() {
                 <div className="text-sm sm:text-base text-primary tracking-widest uppercase mb-5 font-bold">학력</div>
                 <div className="flex flex-col gap-4">
                   <div className="border-b border-border pb-4">
-                    <div className="font-bold text-sm sm:text-base text-foreground mb-1">OO고등학교 졸업</div>
+                    <div className="font-bold text-sm sm:text-base text-foreground mb-1">순천 효천고등학교 졸업</div>
                     <div className="text-sm sm:text-base text-primary font-semibold tracking-wider">2010~2013</div>
                   </div>
                   <div>
-                    <div className="font-bold text-sm sm:text-base text-foreground mb-1">OO대학교 졸업</div>
+                    <div className="font-bold text-sm sm:text-base text-foreground mb-1">광주 보건대학교 졸업</div>
                     <div className="text-sm sm:text-base text-primary font-semibold tracking-wider">2013~2016</div>
                   </div>
                 </div>
