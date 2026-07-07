@@ -6,22 +6,28 @@ import { useState, useEffect } from 'react';
 const printProjects = [
   {
     id: 1, icon: <img src="/images/sum_print_design04.png" className="w-full h-full object-cover" alt="회사소개서" />,
-    imgUrl: '/images/print_design04.png', label: 'Brochure', title: '회사소개서', desc: <>자사의 핵심 솔루션과 제품, 통합 백엔드 시스템의 <br /> 강점을 소개하여 세일즈를 돕기 위해 제작된 회사소개서</>
+    imgUrl: '/images/print_design04.png', label: 'Brochure', title: '회사 소개서', desc: <>자사의 핵심 솔루션, 제품, 시스템의 강점을<br />소개해 세일즈를 돕기 위한 회사소개서</>
   },
   {
     id: 2, icon: <img src="/images/sum_print_design03.png" className="w-full h-full object-cover" alt="QR오더 제안서" />,
-    imgUrl: '/images/print_design03.png', label: 'Brochure', title: '자사 QR오더 서비스 도입 제안서', desc: <>자사의 QR오더 신규 가맹점 유치 및<br />세일즈를 돕기 위해 제작된 제안서</>
+    imgUrl: '/images/print_design03.png', label: 'Brochure', title: '제품 제안서', desc: <>자사의 QR오더 신규 가맹점 유치 및<br />세일즈를 돕기 위해 제작된 제안서</>
   },
   {
-    id: 3, icon: <img src="/images/sum_print_design02.png" className="w-full h-full object-cover" alt="축제 제안 리플릿" />,
-    imgUrl: '/images/print_design02.png', label: 'Leaflet', title: '축제 키오스크 렌탈 홍보 리플릿', desc: <>축제 주최측 및 부스 운영자를 대상으로<br />무인 결제 키오스크 대여를 제안하는 리플릿</>
+    id: 3, icon: <img src="/images/sum_print_design05.png" className="w-full h-full object-cover" alt="행사용 X배너" />,
+    imgUrl: '/images/print_design05.png', label: 'Banner', title: '행사용 X배너', desc: <>오프라인 행사장에서<br />제품 및 행사내용을 소개하는 X배너</>
   },
   {
-    id: 4, icon: <img src="/images/sum_print_design01.png" className="w-full h-full object-cover" alt="박람회 브로슈어" />,
-    imgUrl: '/images/print_design01.png', label: 'Leaflet', title: '박람회 가격정책 안내 브로슈어', desc: <>박람회 현장에서 잠재 고객에게 배포하기<br />위해 제작된 현장 배포용 브로슈어</>
+    id: 4, icon: <img src="/images/sum_print_design01.png" className="w-full h-full object-cover" alt="QR오더 패키지 디자인" />,
+    imgUrl: '/images/print_design01.png', label: 'Package Design', title: 'QR 오더 패키지 디자인', desc: <>고객이 QR오더를 쉽고 빠르게 이용할 수<br /> 있도록 제작한 패키지 디자인</>
   },
-  { id: 5, icon: '📇', label: 'Business Card', title: '명함 세트 디자인', desc: '기업의 첫인상을 돋보이게 하는 프리미엄 명함 제작' },
-  { id: 6, icon: '🏷️', label: 'Label', title: '브랜드 라벨 패키징', desc: '주류 브랜드 리뉴얼을 위한 감각적인 라벨 디자인' },
+  {
+    id: 5, icon: <img src="/images/sum_print_design02.png" className="w-full h-full object-cover" alt="축제 홍보 리플릿" />,
+    imgUrl: '/images/print_design02.png', label: 'Leaflet', title: '축제 홍보 리플릿', desc: <>축제 주최측 및 부스 운영자를 대상으로<br />무인 결제 키오스크 대여를 제안하는 리플릿</>
+  },
+  {
+    id: 6, icon: <img src="/images/sum_print_design06.png" className="w-full h-full object-cover" alt="박람회 외벽 디자인" />,
+    imgUrl: '/images/print_design06.png', label: 'Booth Design', title: '박람회 외벽 디자인', desc: <>매장 특성에 맞는 솔루션을 제안하고<br />자사제품을 소개하는 부스 외벽 디자인</>
+  },
 ];
 
 export default function PrintSection() {
@@ -55,13 +61,13 @@ export default function PrintSection() {
             </div>
           ))}
         </div>
-        {/* {!showAll && printProjects.length > initialCount && (
+        {!showAll && printProjects.length > initialCount && (
           <div className="mt-10 sm:mt-12 text-center">
             <button onClick={() => setShowAll(true)} className="px-8 py-3 sm:px-10 sm:py-3.5 border border-primary/50 text-primary rounded-[10px] text-sm sm:text-base font-bold tracking-[0.2em] hover:bg-primary hover:text-white dark:hover:text-foreground transition-all uppercase">
-               더보기 ＋
+              더보기 ＋
             </button>
           </div>
-        )} */}
+        )}
       </div>
     </section >
   );
