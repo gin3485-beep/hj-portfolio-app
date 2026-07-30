@@ -1,5 +1,6 @@
 import HeroSection from '../components/sections/HeroSection';
 import AboutSection from '../components/sections/AboutSection';
+import ProductDesignSection from '../components/sections/ProductDesignSection';
 import UiUxSection from '../components/sections/UiUxSection';
 import WebSection from '../components/sections/WebSection';
 import PrintSection from '../components/sections/PrintSection';
@@ -12,6 +13,7 @@ export default function Home() {
       <div className="flex flex-col w-full px-2 sm:px-0">
         <HeroSection />
         <AboutSection />
+        <ProductDesignSection />
         {/* <UiUxSection /> */}
         <WebSection />
         <PrintSection />

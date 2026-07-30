@@ -45,7 +45,7 @@ export default function PrintSection() {
   return (
     <section id="print" className="py-20 px-4 sm:px-12 mt-10">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader label="02" title="Print Design" description="오프라인 공간에서도 브랜드를 말하는 인쇄물 디자인 프로젝트입니다." />
+        <SectionHeader label="03" title="Print Design" description="오프라인 공간에서도 브랜드를 말하는 인쇄물 디자인 프로젝트입니다." />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {displayedProjects.map(proj => (

@@ -1,6 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Noto+Serif+KR:wght@600;700;900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+
+@font-face {
+  font-family: 'S-CoreDream';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonnu-2013@1.0/S-CoreDream-6Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-score-dream {
+  font-family: 'S-CoreDream', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-stylish-title {
+  font-family: 'Noto Serif KR', 'Gowun Batang', serif;
+  letter-spacing: -0.02em;
+}
 
 @custom-variant dark (&:is(.dark *));
 

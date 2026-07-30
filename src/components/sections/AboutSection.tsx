@@ -99,7 +99,7 @@ export default function AboutSection() {
                 <div className="relative">
                   <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-primary ring-4 ring-background "></div>
                   <div className="font-bold text-[0.95rem] sm:text-lg text-foreground mb-1">비버웍스</div>
-                  <div className="text-sm sm:text-base text-muted-foreground mb-2">2023.10 – 현재</div>
+                  <div className="text-sm sm:text-base text-muted-foreground mb-2">2023.11 – 현재</div>
                   <span className="inline-block px-1.5 py-0.5 bg-primary border border-primary/40 rounded text-xs text-white dark:text-foreground font-medium">재직중</span>
                 </div>
 
