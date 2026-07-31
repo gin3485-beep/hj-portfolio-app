@@ -38,7 +38,7 @@ export default function WebSection() {
   return (
     <section id="web" className="py-20 px-4 sm:px-12">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader label="02" title="Web & Contents Design" description="기업의 브랜드 아이덴티티를 바탕으로, 브랜드의 톤앤매너를 웹 환경에 감각적으로 시각화한 프로젝트입니다." />
+        <SectionHeader label="02" title="Web & Contents Design" description="제품과 프로모션 정보를 사용 환경에 맞게 구조화하고, 브랜드의 시각적 일관성을 유지한 웹·콘텐츠 디자인입니다." />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {displayedProjects.map(proj => (
             <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-[1200px] max-w-full h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">

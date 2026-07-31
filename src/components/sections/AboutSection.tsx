@@ -1,4 +1,4 @@
-import SectionHeader from '../ui/SectionHeader';
+﻿import SectionHeader from '../ui/SectionHeader';
 
 export default function AboutSection() {
   return (
@@ -6,8 +6,8 @@ export default function AboutSection() {
       <div className="flex flex-col gap-8 w-full max-w-5xl mx-auto">
         <SectionHeader
           label="About Me"
-          title={<>소통하는 디자이너<br className="sm:hidden" /> 장희진입니다.</>}
-          description="UI/UX 설계부터 웹, 인쇄물까지 폭넓은 시각 언어로 브랜드의 가치를 완성합니다."
+          title={<>경험과 구현을 잇는 디자이너<br className="sm:hidden" /></>}
+          description="웹디자인과 퍼블리싱 실무에서 쌓은 시각적 표현력과 구현 이해도를 바탕으로 UI/UX 설계 영역을 확장하고 있습니다."
           showPart={false}
         />
 

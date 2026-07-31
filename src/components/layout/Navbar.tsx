@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useEffect, useState } from 'react';
 
 import { ThemeToggle } from '../ui/ThemeToggle';
@@ -24,7 +24,7 @@ export default function Navbar() {
       } else if (web && web.offsetTop <= scrollPosition) {
         setActiveSection('web');
       } else if (product && product.offsetTop <= scrollPosition) {
-        setActiveSection('product');
+        setActiveSection('ui/ux');
       } else if (about && about.offsetTop <= scrollPosition) {
         setActiveSection('about');
       } else {
@@ -68,13 +68,13 @@ export default function Navbar() {
             </button>
           </li>
           <li>
-            <button onClick={() => scrollTo('product-design')} className={getNavClass('product')}>
-              PRODUCT
+            <button onClick={() => scrollTo('product-design')} className={getNavClass('uiux')}>
+              UI/UX
             </button>
           </li>
           <li>
             <button onClick={() => scrollTo('web')} className={getNavClass('web')}>
-              WEB&CONTENTS
+              WEB
             </button>
           </li>
           <li>
