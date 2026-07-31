@@ -4,20 +4,20 @@ import SectionHeader from '../ui/SectionHeader';
 
 const productProjects = [
   {
-    image: '/images/sum_product_design01.png', // 여기에 이미지를 추가할 수 있습니다. 예: '/images/product-1.jpg'
+    image: '/images/sum_product_design01.png',
     title: 'JJ STORAGE',
     desc: '탐색·예약·결제 과정을 최적화한 모바일 공유창고 서비스',
     role: 'UX Research, UI/UX Design (100%)',
     period: '2026.05–2026.06',
-    link: '#' // 프로젝트 보기 링크를 연결할 수 있습니다.
+    link: '/pdf/jj-storage-portfolio.pdf' // <-- 1번 슬라이드용 PDF 연결!
   },
   {
-    image: '/images/sum_product_design01.png', // 여기에 이미지를 추가할 수 있습니다. 예: '/images/product-1.jpg'
+    image: '/images/sum_product_design01.png',
     title: '모바일 공유창고 예약 솔루션',
     desc: '공유창고 탐색부터 예약·결제까지 설계한 모바일 공유창고 솔루션',
     role: 'UX Research, UI/UX Design (100%)',
     period: '2026.05–2026.06',
-    link: '#' // 프로젝트 보기 링크를 연결할 수 있습니다.
+    link: '#' // <-- 2번 슬라이드는 아직 준비 중이므로 '#'로 유지 (나중에 '/pdf/새파일명.pdf'로 변경)
   }
 ];
 
@@ -87,7 +87,7 @@ export default function ProductDesignSection() {
                   </div>
 
                   {/* 우측: 설명 */}
-                  <div className="pt-6 sm:pt-8 md:pt-10 px-6 sm:px-8 md:px-10 pb-6 sm:pb-8 flex flex-col justify-between bg-card sm:bg-transparent sm:w-1/2">
+                  <div className="pt-6 sm:pt-8 md:pt-10 px-6 sm:px-8 md:px-10 pb-4 sm:pb-5 flex flex-col justify-between bg-card sm:bg-transparent sm:w-1/2">
                     <div>
                       <div className="font-score-dream text-foreground font-bold text-xl sm:text-2xl lg:text-3xl mb-5 sm:mb-6 leading-tight tracking-tight">{p.title}</div>
 
@@ -108,7 +108,7 @@ export default function ProductDesignSection() {
                     </div>
 
                     <div className="flex justify-end mt-6 sm:mt-8">
-                      <a href={p.link} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 w-max">
+                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 w-max">
                         프로젝트 보기
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                       </a>

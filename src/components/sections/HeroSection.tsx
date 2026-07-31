@@ -23,7 +23,7 @@ export default function HeroSection() {
 
         <p className="text-muted-foreground max-w-xs sm:max-w-md md:max-w-full leading-relaxed mb-10 sm:mb-12 text-[0.9rem] sm:text-base md:text-lg break-keep">
           아이디어를 시각으로, 경험을 디자인으로.<br />
-          사용자 경험과 구현 가능성을 함께 고민하는 디자이너입니다.
+          사용자에게는 쉽고, 서비스에는 효율적인 디자인을 고민합니다.
         </p>
 
         {/* <button onClick={scrollToContact} className="px-8 py-3.5 sm:px-10 sm:py-4 bg-primary hover:bg-primary border border-primary text-white rounded-[10px] font-bold tracking-wide transition-all    dark: transform hover:-translate-y-1 text-sm sm:text-base bg-primary">

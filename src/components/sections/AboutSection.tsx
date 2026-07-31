@@ -7,7 +7,7 @@ export default function AboutSection() {
         <SectionHeader
           label="About Me"
           title={<>경험과 구현을 잇는 디자이너<br className="sm:hidden" /></>}
-          description="웹디자인과 퍼블리싱 실무에서 쌓은 시각적 표현력과 구현 이해도를 바탕으로 UI/UX 설계 영역을 확장하고 있습니다."
+          description="웹디자인과 퍼블리싱 실무에서 쌓은 시각적 표현력과 개발 환경에 대한 이해를 바탕으로 UI/UX 설계 영역을 확장하고 있습니다."
           showPart={false}
         />
 
