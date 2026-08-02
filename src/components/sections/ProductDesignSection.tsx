@@ -11,14 +11,14 @@ const productProjects = [
     period: '2026.05–2026.06',
     link: '/pdf/jj-storage-portfolio.pdf' // <-- 1번 슬라이드용 PDF 연결!
   },
-  {
-    image: '/images/sum_product_design01.png',
-    title: '모바일 공유창고 예약 솔루션',
-    desc: '공유창고 탐색부터 예약·결제까지 설계한 모바일 공유창고 솔루션',
-    role: 'UX Research, UI/UX Design (100%)',
-    period: '2026.05–2026.06',
-    link: '#' // <-- 2번 슬라이드는 아직 준비 중이므로 '#'로 유지 (나중에 '/pdf/새파일명.pdf'로 변경)
-  }
+  /*   {
+      image: '/images/sum_product_design01.png',
+      title: '모바일 공유창고 예약 솔루션',
+      desc: '공유창고 탐색부터 예약·결제까지 설계한 모바일 공유창고 솔루션',
+      role: 'UX Research, UI/UX Design (100%)',
+      period: '2026.05–2026.06',
+      link: '#' // <-- 2번 슬라이드는 아직 준비 중이므로 '#'로 유지 (나중에 '/pdf/새파일명.pdf'로 변경)
+    } */
 ];
 
 export default function ProductDesignSection() {
