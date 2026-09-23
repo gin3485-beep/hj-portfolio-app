@@ -9,15 +9,15 @@ const productProjects = [
     desc: '탐색·예약·결제 과정을 최적화한 모바일 공유창고 서비스',
     role: 'UX Research, UI/UX Design (100%)',
     period: '2026.07–2026.08',
-    link: '/pdf/jj-storage-portfolio.pdf' // <-- 1번 슬라이드용 PDF 연결!
+    link: '/pdf/UIUX_STORAGE.pdf' // <-- 1번 슬라이드용 PDF 연결!
   },
   {
-    image: '/images/sum_product_design01.png',
+    image: '/images/sum_product_design02.png',
     title: '프랜차이즈 통합 운영 대시보드',
     desc: '프랜차이즈 매장 운영 현황을 통합 관리하는 대시보드',
     role: 'UX Planning, UI/UX Design (100%)',
     period: '2026.08–2026.09',
-    link: '#' // <-- 2번 슬라이드는 아직 준비 중이므로 '#'로 유지 (나중에 '/pdf/새파일명.pdf'로 변경)
+    link: '/pdf/UIUX_DASHBOARD.pdf' // <-- 2번 슬라이드는 아직 준비 중이므로 '#'로 유지 (나중에 '/pdf/새파일명.pdf'로 변경)
   }
 ];
 
