@@ -13,10 +13,10 @@ export default function Home() {
       <div className="flex flex-col w-full px-2 sm:px-0">
         <HeroSection />
         <AboutSection />
-        <ProductDesignSection />
         {/* <UiUxSection /> */}
         <WebSection />
         <PrintSection />
+        <ProductDesignSection />
         {/* <ContactSection /> */}
       </div>
     </PopupProvider>

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useEffect, useState } from 'react';
 
 import { ThemeToggle } from '../ui/ThemeToggle';
@@ -13,18 +13,18 @@ export default function Navbar() {
 
       const hero = document.getElementById('hero');
       const about = document.getElementById('about');
-      const product = document.getElementById('product-design');
       const web = document.getElementById('web');
       const print = document.getElementById('print');
+      const product = document.getElementById('product-design');
 
       const scrollPosition = window.scrollY + window.innerHeight * 0.4;
 
-      if (print && print.offsetTop <= scrollPosition) {
+      if (product && product.offsetTop <= scrollPosition) {
+        setActiveSection('uiux');
+      } else if (print && print.offsetTop <= scrollPosition) {
         setActiveSection('print');
       } else if (web && web.offsetTop <= scrollPosition) {
         setActiveSection('web');
-      } else if (product && product.offsetTop <= scrollPosition) {
-        setActiveSection('ui/ux');
       } else if (about && about.offsetTop <= scrollPosition) {
         setActiveSection('about');
       } else {
@@ -68,11 +68,6 @@ export default function Navbar() {
             </button>
           </li>
           <li>
-            <button onClick={() => scrollTo('product-design')} className={getNavClass('uiux')}>
-              UI/UX
-            </button>
-          </li>
-          <li>
             <button onClick={() => scrollTo('web')} className={getNavClass('web')}>
               WEB
             </button>
@@ -80,6 +75,11 @@ export default function Navbar() {
           <li>
             <button onClick={() => scrollTo('print')} className={getNavClass('print')}>
               PRINT
+            </button>
+          </li>
+          <li>
+            <button onClick={() => scrollTo('product-design')} className={getNavClass('uiux')}>
+              UI/UX
             </button>
           </li>
         </ul>
