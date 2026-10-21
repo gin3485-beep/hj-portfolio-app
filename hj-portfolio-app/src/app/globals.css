@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Noto+Serif+KR:wght@600;700;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@font-face {
+  font-family: 'S-CoreDream';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonnu-2013@1.0/S-CoreDream-6Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-score-dream {
+  font-family: 'S-CoreDream', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-stylish-title {
+  font-family: 'Noto Serif KR', 'Gowun Batang', serif;
+  letter-spacing: -0.02em;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  /* 반응형 브레이크포인트: 모바일 ~768px / 태블릿 ~1280px / 데스크탑 1280px~ */
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 1280px;
+  --breakpoint-lg: 1536px;
+}
+
+:root {
+  /* Light Mode */
+  --background: #ffffff;
+  --foreground: oklch(0.2 0.05 300);
+  --card: oklch(1 0 0 / 0.6);
+  --card-foreground: oklch(0.2 0.05 300);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.05 300);
+  --primary: #2E75FF;
+  --primary-foreground: #ffffff;
+  --secondary: oklch(0.95 0.02 300);
+  --secondary-foreground: oklch(0.2 0.05 300);
+  --muted: oklch(0.95 0.02 300);
+  --muted-foreground: oklch(0.4 0.05 300);
+  --accent: #2E75FF;
+  --accent-foreground: oklch(0.2 0.05 300);
+  --destructive: oklch(0.6 0.2 20);
+  --border: oklch(0.85 0.02 300 / 0.5);
+  --input: oklch(0.9 0.02 300 / 0.5);
+  --ring: #2E75FF;
+  --radius: 1rem;
+}
+
+.dark {
+  /* HeroUI Style Dark Mode (Deep Black) */
+  --background: oklch(0.1 0 0); /* Pure Black 느낌의 딥 블랙 */
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.15 0.01 0 / 0.6); /* 배경보다 약간 밝은 블랙 카드 */
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: #6a9cff;
+  --primary-foreground: #ffffff;
+  --secondary: oklch(0.18 0.01 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.98 0 0); /* 회색에서 흰색 톤으로 가시성 상향 */
+  --accent: #6a9cff;
+  --accent-foreground: oklch(0.98 0 0);
+  --border: oklch(0.4 0 0 / 0.8); /* 경계선 가시성 대폭 상향 */
+  --input: oklch(0.2 0.01 0);
+  --ring: #6a9cff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen transition-colors duration-500;
+    overflow-x: hidden;
+  }
+
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.glass-card {
+  @apply bg-card backdrop-blur-xl border border-border rounded-[10px] transition-all duration-300;
+}
+
+.dark .glass-card {
+  /* 다크 모드에서는 확실히 보이는 밝은 외곽선 */
+  @apply  border-white/40;
+}
+
+.glass-card:hover {
+  @apply border-primary/30 transform -translate-y-1 ;
+}
+
+.dark .glass-card:hover {
+  @apply border-white/60 bg-white/10 ;
+}
+
+.glass-nav {
+  @apply bg-background/70 backdrop-blur-xl border-b border-border;
+}
+
+.text-gradient {
+  @apply text-primary;
+}
+
+.dark .text-gradient {
+  @apply text-primary; /* 다크 모드에서 좀 더 선명한 보라-인디고 그라데이션 */
+}
