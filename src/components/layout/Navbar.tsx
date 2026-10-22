@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 max-w-6xl w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-2.5 px-4 sm:px-12' : 'bg-transparent py-4 sm:py-6 px-4 sm:px-12'} flex justify-between items-center`}>
       <button onClick={() => scrollTo('hero')} className="text-lg sm:text-2xl font-black tracking-[0.15em] text-transparent bg-clip-text bg-primary dark:from-primary dark:to-accent hover:opacity-80 transition-all cursor-pointer text-left shrink-0">
-        HJ.DESIGN
+        DESIGNER HJ
       </button>
 
       <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar">

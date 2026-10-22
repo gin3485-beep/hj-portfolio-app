@@ -11,14 +11,11 @@ export default function HeroSection() {
 
 
       <div className="max-w-6xl w-full mx-auto flex flex-col items-start text-left z-10">
-        <div className="text-sm sm:text-base text-primary dark:text-primary tracking-[0.3em] font-bold mb-4 flex items-center justify-start gap-4">
-          <span className="block w-8 sm:w-12 h-[2px] bg-primary"></span>
-          UI/UX DESIGNER
-        </div>
+        <div className="w-12 sm:w-20 h-[2px] bg-primary mb-6 sm:mb-8 rounded-full"></div>
 
         <h1 className="text-5xl sm:text-7xl md:text-8xl font-black leading-[1.2] tracking-tighter text-foreground mb-6 sm:mb-8">
-          WEB &<br />
-          <span className="text-gradient">CONTENTS</span><br />
+          WEB & UI/UX<br />
+          <span className="text-gradient">DESIGNER</span><br />
           PORTFOLIO
         </h1>
 

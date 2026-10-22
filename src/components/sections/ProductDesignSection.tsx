@@ -39,7 +39,7 @@ export default function ProductDesignSection() {
   return (
     <section id="product-design" className="py-20 px-4 sm:px-12">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader label="01" title="UI/UX Design" description="사용자 관점에서 문제를 정의하고, 정보 구조와 이용 흐름을 설계한 UI/UX 프로젝트입니다." />
+        <SectionHeader label="03" title="UI/UX Design" description="사용자 관점에서 문제를 정의하고, 정보 구조와 이용 흐름을 설계한 UI/UX 프로젝트입니다." />
 
         <div className="flex items-center gap-3 sm:gap-5 w-full">
           {/* 좌측 화살표 버튼 */}

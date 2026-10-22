@@ -5,28 +5,33 @@ import { useState, useEffect } from 'react';
 
 const printProjects = [
   {
-    id: 1, icon: <img src="/images/sum_print_design04.png" className="w-full h-full object-cover" alt="회사소개서" />,
-    imgUrl: '/images/print_design04.png', label: 'Brochure', title: '회사 소개서', desc: <>자사의 핵심 솔루션, 제품, 시스템의 강점을<br />소개해 세일즈를 돕기 위한 회사소개서</>
+    id: 1, icon: <img src="/images/sum_print_design01.png" className="w-full h-full object-cover" alt="회사소개서" />,
+    imgUrl: '/images/print_design01.png', label: 'Brochure', title: '회사 소개서', desc: <>자사의 핵심 솔루션, 제품, 시스템의 강점을<br />소개해 세일즈를 돕기 위한 회사소개서</>
   },
   {
-    id: 2, icon: <img src="/images/sum_print_design03.png" className="w-full h-full object-cover" alt="QR오더 제안서" />,
-    imgUrl: '/images/print_design03.png', label: 'Brochure', title: '제품 제안서', desc: <>자사의 QR오더 신규 가맹점 유치 및<br />세일즈를 돕기 위해 제작된 제안서</>
+    id: 2, icon: <img src="/images/sum_print_design02.png" className="w-full h-full object-cover" alt="QR오더 제안서" />,
+    imgUrl: '/images/print_design02.png', label: 'Brochure', title: '제품 제안서', desc: <>자사의 QR오더 신규 가맹점 유치 및<br />세일즈를 돕기 위해 제작된 제안서</>
   },
   {
-    id: 3, icon: <img src="/images/sum_print_design05.png" className="w-full h-full object-cover" alt="행사용 X배너" />,
-    imgUrl: '/images/print_design05.png', label: 'Banner', title: '행사용 X배너', desc: <>오프라인 행사장에서<br />제품 및 행사내용을 소개하는 X배너</>
+    id: 3, icon: <img src="/images/sum_print_design03.png" className="w-full h-full object-cover" alt="축제 홍보 리플릿" />,
+    imgUrl: '/images/print_design03.png', label: 'Leaflet', title: '축제 홍보 리플릿', desc: <>축제 주최측 및 부스 운영자를 대상으로<br />무인 결제 키오스크 대여를 제안하는 리플릿</>
   },
   {
-    id: 4, icon: <img src="/images/sum_print_design01.png" className="w-full h-full object-cover" alt="QR오더 패키지 디자인" />,
-    imgUrl: '/images/print_design01.png', label: 'Package Design', title: 'QR 오더 패키지 디자인', desc: <>고객이 QR오더를 쉽고 빠르게 이용할 수<br /> 있도록 제작한 패키지 디자인</>
+    id: 4, icon: <img src="/images/sum_print_design04.png" className="w-full h-full object-cover" alt="박람회 브로슈어" />,
+    imgUrl: '/images/print_design04.png', label: 'Brochure', title: '박람회 브로슈어', desc: <>박람회 프로모션 특가와 제품 주요 기능<br />지원사업 정보를 소개하는 브로슈어</>
   },
   {
-    id: 5, icon: <img src="/images/sum_print_design02.png" className="w-full h-full object-cover" alt="축제 홍보 리플릿" />,
-    imgUrl: '/images/print_design02.png', label: 'Leaflet', title: '축제 홍보 리플릿', desc: <>축제 주최측 및 부스 운영자를 대상으로<br />무인 결제 키오스크 대여를 제안하는 리플릿</>
+    id: 5, icon: <img src="/images/sum_print_design05.png" className="w-full h-full object-cover" alt="행사용 X배너" />,
+    imgUrl: '/images/print_design05.png', label: 'Banner', title: '행사용 X배너', desc: <>오프라인 행사장에서<br />제품 및 행사내용을 소개하는 X배너</>,
+    popupClassName: 'w-[412px]'
   },
   {
     id: 6, icon: <img src="/images/sum_print_design06.png" className="w-full h-full object-cover" alt="박람회 외벽 디자인" />,
     imgUrl: '/images/print_design06.png', label: 'Booth Design', title: '박람회 외벽 디자인', desc: <>매장 특성에 맞는 솔루션을 제안하고<br />자사제품을 소개하는 부스 외벽 디자인</>
+  },
+  {
+    id: 7, icon: <img src="/images/sum_print_design07.png" className="w-full h-full object-cover" alt="QR오더 패키지 디자인" />,
+    imgUrl: '/images/print_design07.png', label: 'Package Design', title: '박람회 외벽 디자인', desc: <>고객이 QR오더를 쉽고 빠르게 이용할 수<br /> 있도록 제작한 패키지 디자인</>
   },
 ];
 
@@ -49,7 +54,7 @@ export default function PrintSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {displayedProjects.map(proj => (
-            <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-[1200px] max-w-full h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex overflow-hidden">
+            <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className={`block ${proj.popupClassName || 'w-[1200px]'} max-w-full h-auto mx-auto`} alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex overflow-hidden">
               <div className="w-24 sm:w-32 md:w-40 shrink-0 bg-primary/5 flex items-center justify-center text-4xl sm:text-5xl md:text-5xl group-hover:bg-primary/20 transition-colors  ">
                 {proj.icon}
               </div>

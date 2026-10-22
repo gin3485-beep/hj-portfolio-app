@@ -4,16 +4,16 @@ import { usePopup } from '../ui/PopupProvider';
 import { useState, useEffect } from 'react';
 
 const webProjects = [
-  { id: 1, icon: <img src="/images/web_design01.png" className="w-full h-full object-cover object-top" alt="SKB콜라보" />, imgUrl: '/images/web_design01.png', label: '상세페이지', title: 'SKB 콜라보 이벤트 랜딩페이지', desc: '자사의 제품과 SKB인터넷 패키지 콜라보를 알리는 이벤트 상세페이지' },
-  { id: 2, icon: <img src="/images/web_design02.png" className="w-full h-full object-cover object-top" alt="신제품출시" />, imgUrl: '/images/web_design02.png', label: '상세페이지', title: '자사 제품 소개 상세페이지', desc: '배리어프리 키오스크의 차별화된 기능과 사용자 편의성을 소개하는 상세페이지' },
-  { id: 3, icon: <img src="/images/web_design03.png" className="w-full h-full object-cover object-top" alt="소상공인 스마트상점" />, imgUrl: '/images/web_design03.png', label: '상세페이지', title: '정부지원사업 상세페이지', desc: '스마트상점 도입 사업의 혜택을 알리고 신청을 유도하기 위해 제작된 상세페이지' },
-  { id: 10, icon: <img src="/images/web_design10.png" className="w-full h-full object-cover object-top" alt="오더퀸 2.0 출시" />, imgUrl: '/images/web_design10.png', label: '상세페이지', title: '자사 신규 제품 홍보 프로모션 페이지', desc: '새롭게 출시된 자사 제품(오더퀸 2.0)을 소개하고 초기 판매를 유도하는 상세페이지' },
-  { id: 4, icon: <img src="/images/web_design04.png" className="w-full h-full object-cover object-top" alt="SKB콜라보 팝업" />, imgUrl: '/images/web_design04.png', label: '홈페이지 팝업', title: '홈페이지 이벤트 팝업', desc: '자사 홈페이지의 프로모션 혜택을 홍보하는 이벤트 팝업' },
-  { id: 5, icon: <img src="/images/web_design09.png" className="w-full h-full object-cover object-top" alt="키오스크 화면" />, imgUrl: '/images/web_design09.png', label: '키오스크 화면', title: '키오스크 화면 UIUX디자인', desc: '사용자 중심으로 구성한 키오스크 UIUX 및 광고 컨텐츠 디자인' },
-  { id: 6, icon: <img src="/images/web_design05.png" className="w-full h-full object-cover object-top" alt="테이블오더 화면" />, imgUrl: '/images/web_design05.png', label: '테이블오더 화면', title: '네이버 리뷰 이벤트 안내 화면', desc: '매장에서 진행하는 리뷰 이벤트와 참여 혜택을 안내하는 테이블오더 광고 화면' },
+  { id: 1, icon: <img src="/images/web_design01.png" className="w-full h-full object-cover object-top" alt="SKB콜라보" />, imgUrl: '/images/web_design01.png', label: '상세페이지', title: 'SKB 콜라보 이벤트 랜딩페이지', desc: '자사의 제품과 SKB인터넷 패키지 콜라보를 알리는 이벤트 상세페이지', popupClassName: 'w-[840px]' },
+  { id: 2, icon: <img src="/images/web_design02.png" className="w-full h-full object-cover object-top" alt="신제품출시" />, imgUrl: '/images/web_design02.png', label: '상세페이지', title: '자사 제품 소개 상세페이지', desc: '배리어프리 키오스크의 차별화된 기능과 사용자 편의성을 소개하는 상세페이지', popupClassName: 'w-[840px]' },
+  { id: 3, icon: <img src="/images/web_design03.png" className="w-full h-full object-cover object-top" alt="소상공인 스마트상점" />, imgUrl: '/images/web_design03.png', label: '상세페이지', title: '정부지원사업 상세페이지', desc: '스마트상점 도입 사업의 혜택을 알리고 신청을 유도하기 위해 제작된 상세페이지', popupClassName: 'w-[840px]' },
+  { id: 10, icon: <img src="/images/web_design10.png" className="w-full h-full object-cover object-top" alt="오더퀸 2.0 출시" />, imgUrl: '/images/web_design10.png', label: '상세페이지', title: '자사 신규 제품 홍보 프로모션 페이지', desc: '새롭게 출시된 자사 제품(오더퀸 2.0)을 소개하고 초기 판매를 유도하는 상세페이지', popupClassName: 'w-[840px]' },
+  { id: 4, icon: <img src="/images/web_design04.png" className="w-full h-full object-cover object-top" alt="SKB콜라보 팝업" />, imgUrl: '/images/web_design04.png', label: '홈페이지 팝업', title: '홈페이지 이벤트 팝업', desc: '자사 홈페이지의 프로모션 혜택을 홍보하는 이벤트 팝업', popupClassName: 'w-[588px]' },
+  { id: 5, icon: <img src="/images/web_design09.png" className="w-full h-full object-cover object-top" alt="키오스크 화면" />, imgUrl: '/images/web_design09.png', label: '키오스크 화면', title: '키오스크 화면 UIUX디자인', desc: '사용자 중심으로 구성한 키오스크 UIUX 및 광고 컨텐츠 디자인', popupClassName: 'w-[588px]' },
+  { id: 6, icon: <img src="/images/web_design05.png" className="w-full h-full object-cover object-top" alt="테이블오더 화면" />, imgUrl: '/images/web_design05.png', label: '테이블오더 화면', title: '네이버 리뷰 이벤트 안내 화면', desc: '매장에서 진행하는 리뷰 이벤트와 참여 혜택을 안내하는 테이블오더 광고 화면', popupClassName: 'w-[840px]' },
   { id: 7, icon: <img src="/images/web_design06.png" className="w-full h-full object-cover object-top" alt="DID 디스플레이" />, imgUrl: '/images/web_design06.png', label: 'DID 디스플레이', title: '음료 메뉴판 디스플레이', desc: '매장에서 판매하는 음료 메뉴와 가격 정보를 한눈에 확인할 수 있도록 제작한 DID 화면' },
-  { id: 8, icon: <img src="/images/web_design07.png" className="w-full h-full object-cover object-top" alt="인스타그램 썸네일" />, imgUrl: '/images/web_design07.png', label: '인스타그램 썸네일', title: '인스타그램 콘텐츠 디자인', desc: '전문적인 견적분석을 통해 비용 절감과 고객 맞춤형 컨설팅을 제공하는 홍보 콘텐츠' },
-  { id: 9, icon: <img src="/images/web_design08.png" className="w-full h-full object-cover object-top" alt="블로그 썸네일" />, imgUrl: '/images/web_design08.png', label: '블로그 썸네일', title: '블로그 썸네일 디자인', desc: '최신 외식 트렌드와 인기 메뉴를 쉽게 전달하는 블로그 썸네일' },
+  { id: 8, icon: <img src="/images/web_design07.png" className="w-full h-full object-cover object-top" alt="인스타그램 썸네일" />, imgUrl: '/images/web_design07.png', label: '인스타그램 썸네일', title: '인스타그램 콘텐츠 디자인', desc: '전문적인 견적분석을 통해 비용 절감과 고객 맞춤형 컨설팅을 제공하는 홍보 콘텐츠', popupClassName: 'w-[600px]' },
+  { id: 9, icon: <img src="/images/web_design08.png" className="w-full h-full object-cover object-top" alt="블로그 썸네일" />, imgUrl: '/images/web_design08.png', label: '블로그 썸네일', title: '블로그 썸네일 디자인', desc: '최신 외식 트렌드와 인기 메뉴를 쉽게 전달하는 블로그 썸네일', popupClassName: 'w-[600px]' },
 
   // { id: 10, icon: '🌿', label: 'Eco', title: '친환경 브랜드 웹', desc: '지속가능성 메시지를 담은 친환경 기업 웹사이트' },
   // { id: 11, icon: '🏗️', label: 'Architecture', title: '건축사무소 포트폴리오', desc: '공간과 구조를 시각화한 건축사 웹 포트폴리오' },
@@ -41,7 +41,7 @@ export default function WebSection() {
         <SectionHeader label="01" title="Web & Contents Design" description="제품과 프로모션 정보를 사용 환경에 맞게 구조화하고, 브랜드의 시각적 일관성을 유지한 웹·콘텐츠 디자인입니다." />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {displayedProjects.map(proj => (
-            <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className="block w-[1200px] max-w-full h-auto mx-auto" alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">
+            <div key={proj.id} onClick={() => openPopup(proj.imgUrl ? <img src={proj.imgUrl} className={`block ${proj.popupClassName || 'w-[1200px]'} max-w-full h-auto mx-auto`} alt={proj.title} /> : proj.icon)} className="glass-card cursor-pointer group flex flex-col overflow-hidden">
               <div className="h-32 sm:h-44 md:h-52 bg-primary/5 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl relative overflow-hidden group-hover:bg-primary/20 transition-colors">
                 {proj.icon}
               </div>
